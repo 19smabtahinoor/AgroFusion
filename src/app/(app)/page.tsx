@@ -1,6 +1,9 @@
+import Navbar from "@/components/ui/Navbar";
 
 export default function page() {
     return (
-        <div>Landing Page</div>
+        <div>
+            <Navbar />
+        </div>
     );
 }

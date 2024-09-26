@@ -1,12 +1,27 @@
 "use client";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
 import svg from '@/constants/menuIcons';
 import { cn } from "@/lib/utils";
 import Image from 'next/image';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
+import LetterAvatar from 'react-avatar';
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
+import { PiSignOut } from "react-icons/pi";
+
+
+import { signOut, useSession } from "next-auth/react";
+
+
 export default function Sidebar({ children }: { children: React.ReactNode; }) {
 
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -43,12 +58,43 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
         </Link>;
     });
 
+    const { data, status } = useSession();
+    const { user } = data || {};
+
+    const content = <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+            <div className="cursor-pointer">
+                <LetterAvatar name={user?.name} className="rounded-full" size="35" textSizeRatio={2.7} />
+            </div>
+
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56 bg-white border shadow-lg border-slate-200">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <hr className="border-slate-200" />
+            <DropdownMenuGroup>
+                <DropdownMenuItem className="gap-x-2" onClick={() => signOut()}>
+                    <PiSignOut className="text-2xl" />
+                    Sign Out
+                </DropdownMenuItem>
+            </DropdownMenuGroup>
+        </DropdownMenuContent>
+    </DropdownMenu>;
+
     return (
         <div className="h-screen flex flex-col">
-            <nav className="flex gap-x-2 items-center px-5 py-3 w-[300px] lg:bg-[#F3FFF6]">
-                <div className="block md:hidden cursor-pointer" onClick={() => setMobileMenu((open) => !open)}>{mobileMenu ? <IoMdClose className="text-2xl" /> : <HiMenuAlt2 className="text-2xl" />}</div>
-                <div className="flex items-center gap-x-3 px-6">
-                    <Image src={svg.brandLogo} alt='Brand Logo' />
+            <nav className="flex gap-x-2 items-center justify-between">
+                <div className='w-[300px] lg:bg-[#F3FFF6]  px-5 py-3  '>
+                    <div className="block md:hidden cursor-pointer" onClick={() => setMobileMenu((open) => !open)}>{mobileMenu ? <IoMdClose className="text-2xl" /> : <HiMenuAlt2 className="text-2xl" />}</div>
+                    <div className="flex items-center gap-x-3 px-6">
+                        <Image src={svg.brandLogo} alt='Brand Logo' />
+                    </div>
+                </div>
+                <div className='pr-[100px] flex items-center gap-x-2'>
+                    <div>
+                        {content}
+                    </div>
+                    <h1>{user?.name}</h1>
+
                 </div>
             </nav>
             <hr className="border-slate-200" />

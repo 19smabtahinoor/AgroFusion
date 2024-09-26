@@ -1,3 +1,5 @@
+import { Toaster } from '@/components/ui/toaster';
+import AuthProvider from '@/providers/AuthProvider';
 import StoreProvider from '@/providers/StoreProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -16,9 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <div className={inter.className}>
-      <StoreProvider>
-        <div className="container">{children}</div>
-      </StoreProvider>
+      <AuthProvider>
+        <StoreProvider>
+          <div className="container">{children}</div>
+          <Toaster />
+        </StoreProvider>
+      </AuthProvider>
     </div>
   );
 }
