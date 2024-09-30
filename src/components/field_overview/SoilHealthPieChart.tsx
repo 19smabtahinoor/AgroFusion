@@ -8,7 +8,7 @@ export default function SoilHealthPieChart() {
 
     const data = {
         labels: [
-            'Green',
+            'Green 705',
             'Light Green',
         ],
         datasets: [{

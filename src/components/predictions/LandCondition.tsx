@@ -2,11 +2,11 @@ import ModuleTitle from '@/components/ui/ModuleTitle';
 
 const LandCondition = () => {
   const data = [
-    { id: 1, title: 'Soil Moisture Content', value: '20%' },
+    // { id: 1, title: 'Soil Moisture Content', value: '20%' },
     { id: 2, title: 'Soil Nutrient Levels', value: '73%' },
-    { id: 3, title: 'Soil pH Level', value: '6.0' },
+    // { id: 3, title: 'Soil pH Level', value: '6.0' },
     { id: 4, title: 'Organic Matter', value: '89%' },
-    { id: 5, title: 'Erosion Risk', value: '10%' },
+    { id: 5, title: 'Soil Dryness', value: '10%' },
   ];
   return (
     <div className="pl-4">

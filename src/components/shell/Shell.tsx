@@ -19,6 +19,7 @@ import { IoMdClose } from 'react-icons/io';
 import { PiSignOut } from 'react-icons/pi';
 
 import { signOut, useSession } from 'next-auth/react';
+import TopBarLocation from './TopBarLocation';
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -139,6 +140,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="pr-[100px] flex items-center gap-x-2">
+          <TopBarLocation />
           <div>{content}</div>
           <h1>{user?.name}</h1>
         </div>

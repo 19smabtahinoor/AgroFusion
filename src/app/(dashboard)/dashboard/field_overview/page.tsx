@@ -19,9 +19,9 @@ export default function page() {
                         <Humidity />
                         <HumidityBubbleChart />
                     </div>
-                    <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
+                    <div className="col-span-2 border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
                         <Temperature />
-                        <TemperatureLineChart />
+                        {/* <TemperatureLineChart /> */}
                     </div>
                     <div className="col-span-3">
                         <div className="grid lg:grid-cols-2">

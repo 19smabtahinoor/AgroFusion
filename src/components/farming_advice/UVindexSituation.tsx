@@ -1,26 +1,25 @@
 import ModuleTitle from '../ui/ModuleTitle';
 import ViewReportBtn from '../ui/ViewReportBtn';
-import PestActivityLineChart from './PestActivityLineChart';
-import SoilActivityState from './SoilActivityState';
+import GroundWaterLevelLineChart from './GroundWaterLevelLineChart';
 
-const SoilActivity = () => {
+const UVindexSituation = () => {
   return (
     <>
       <div>
         <div className="flex justify-between pb-3">
           <div>
             <div className="mb-3">
-              <ModuleTitle title="Soil Activity" />
+              <ModuleTitle title="UV Index" />
             </div>
-            <h1 className="text-lg">State: </h1>
+            <h1 className="text-lg">Result: </h1>
           </div>
           <ViewReportBtn />
         </div>
-
-        <SoilActivityState />
+        
+        <GroundWaterLevelLineChart />
       </div>
     </>
   );
 };
 
-export default SoilActivity;
+export default UVindexSituation;
