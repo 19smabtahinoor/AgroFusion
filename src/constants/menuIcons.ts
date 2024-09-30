@@ -6,6 +6,18 @@ import profile from '@/icons/Profile.svg';
 import setting from '@/icons/Setting.svg';
 import siren from '@/icons/Siren.svg';
 import trot_cards from '@/icons/Tarot Cards.svg';
+import abrahi from '@/icons/abtahi.png';
+import agriculturalRobot from '@/icons/agricultural-robot.svg';
+import farhan from '@/icons/farhan.png';
+import farmer from '@/icons/farmer.png';
+import farming from '@/icons/farming_field.jpeg';
+import hardware from '@/icons/hardware.svg';
+import ragib from '@/icons/ragib.png';
+import riceFarming from '@/icons/rice_farming.png';
+import sumaiya from '@/icons/sumaiya.png';
+import talha from '@/icons/talha.png';
+import vector from '@/icons/vector.svg';
+import yeasar from '@/icons/yeasar.png';
 
 const icons = {
     field,
@@ -15,7 +27,19 @@ const icons = {
     setting,
     siren,
     trot_cards,
-    brandLogo
+    brandLogo,
+    farmer,
+    farming,
+    riceFarming,
+    hardware,
+    agriculturalRobot,
+    abrahi,
+    yeasar,
+    farhan,
+    ragib,
+    talha,
+    sumaiya,
+    vector
 };
 
 export default icons;

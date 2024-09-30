@@ -22,7 +22,7 @@ export default function NavItems({ links }: { links: Link[]; }) {
             {items}
             <div>
                 <Link href={'/sign-in'}>
-                    <Button className="mb-5 md:mb-0 text-sm w-[fit-content]">Sign In</Button>
+                    <Button className="mb-5 md:mb-0 text-sm w-[fit-content] text-primary bg-secondary rounded-full hover:text-white shadow-none">Sign In</Button>
                 </Link>
             </div>
         </>

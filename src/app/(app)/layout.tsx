@@ -20,7 +20,7 @@ export default function RootLayout({
     <div className={inter.className}>
       <AuthProvider>
         <StoreProvider>
-          <div className="container">{children}</div>
+          <div className="">{children}</div>
           <Toaster />
         </StoreProvider>
       </AuthProvider>

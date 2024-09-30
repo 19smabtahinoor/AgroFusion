@@ -21,7 +21,7 @@ import { PiSignOut } from 'react-icons/pi';
 import { signOut, useSession } from 'next-auth/react';
 import TopBarLocation from './TopBarLocation';
 
-export default function Sidebar({ children }: { children: React.ReactNode }) {
+export default function Sidebar({ children }: { children: React.ReactNode; }) {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const links = [
@@ -136,7 +136,9 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
             )}
           </div>
           <div className="flex items-center gap-x-3 px-6">
-            <Image src={svg.brandLogo} alt="Brand Logo" />
+            <Link href={'/'}>
+              <Image src={svg.brandLogo} alt="Brand Logo" />
+            </Link>
           </div>
         </div>
         <div className="pr-[100px] flex items-center gap-x-2">
