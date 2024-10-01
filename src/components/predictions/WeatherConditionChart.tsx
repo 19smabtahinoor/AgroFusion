@@ -13,6 +13,7 @@ Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 
 interface WeatherConditionChartProps {
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   weatherPredictionData: any;
 
 }

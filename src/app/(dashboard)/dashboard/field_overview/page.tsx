@@ -3,7 +3,6 @@ import HumidityBubbleChart from "@/components/field_overview/HumidityBubbleChart
 import PhLevel from "@/components/field_overview/PhLevel";
 import SoilHealth from "@/components/field_overview/SoilHealth";
 import Temperature from "@/components/field_overview/Temperature";
-import TemperatureLineChart from "@/components/field_overview/TemperatureLineChart";
 import WaterLevel from "@/components/field_overview/WaterLevel";
 import WaterLevelLineChart from "@/components/field_overview/WaterLevelLineChart";
 import PageTitle from "@/components/ui/PageTitle";

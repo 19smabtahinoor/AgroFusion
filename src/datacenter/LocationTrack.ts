@@ -1,28 +1,20 @@
 import { getData } from "@/datacenter/esp32";
 
-let latitude:any; 
-let longitude:any;
-
-
-
+let latitude = 0;
+let longitude = 0;
 
 async function fetchData() {
-    try {
-          const data = await getData();
-          latitude = data?.Latitude;
-          longitude = data?.Longitude;
+	try {
+		const data = await getData();
+		latitude = data?.Latitude;
+		longitude = data?.Longitude;
 
 
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      }
+	} catch (error) {
+		console.error("Error fetching data:", error);
+	}
+}
 fetchData();
-
-
-
-
-
-export {longitude, latitude}
+export { latitude, longitude };
 
 

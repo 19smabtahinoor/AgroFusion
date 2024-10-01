@@ -18,7 +18,7 @@ import { z } from "zod";
 
 export default function Page() {
 
-    const { register, handleSubmit, formState: { errors, isLoading }, reset } = useForm<SignInFormData>({
+    const { register, handleSubmit, formState: { errors } } = useForm<SignInFormData>({
         resolver: zodResolver(SignInSchema),
         defaultValues: {
             email: '',
@@ -77,7 +77,7 @@ export default function Page() {
                                     {errors.password && <Error>{errors.password.message}</Error>}
                                 </div>
                                 <div className="flex gap-x-2 py-2 px-2">
-                                    <p>Don't have an account?</p>
+                                    <p>Don&apos;t have an account?</p>
                                     <Link href={'/sign-up'} className="text-primary hover:underline">Sign Up</Link>
                                 </div>
                                 <Button className="text-white w-full py-5 mt-5">

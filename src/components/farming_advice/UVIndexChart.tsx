@@ -8,25 +8,19 @@ import {
 } from 'chart.js';
 import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
+
 Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const UVIndexChart: React.FC<any> = ({ UVIndexData }) => {
 
-interface UVIndexChartProps {
+  const hourlyTime = [];
 
-    UVIndexData: any;
-
-}
-
-
-const UVIndexChart: React.FC<UVIndexChartProps> = ({ UVIndexData }) => {
-
-    const hourlyTime = []
-    
-    for (let i = 0; i < UVIndexData?.hourly?.time.length; i++) {
-        const date = new Date(UVIndexData?.hourly?.time[i]);
-        const formattedTime = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true });
-        hourlyTime.push(formattedTime)
-    }
+  for (let i = 0; i < UVIndexData?.hourly?.time.length; i++) {
+    const date = new Date(UVIndexData?.hourly?.time[i]);
+    const formattedTime = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true });
+    hourlyTime.push(formattedTime);
+  }
 
 
   const data: ChartData<'line' | 'bar', number[], string> = {

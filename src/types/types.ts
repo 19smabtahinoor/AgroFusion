@@ -25,3 +25,28 @@ export type VerificationCodeFromData = {
     email: string;
     verificationCode: string;
 };
+
+export type HumiditySchemaType = {
+    humidity: number,
+};
+
+export type Humidity = {
+    _id: string,
+    humidity: number,
+    createdAt: string,
+    updatedAt: string;
+};
+
+export type SoilData = {
+    Altitude: number,
+    Humidity: number,
+    Latitude: number,
+    Longitude: number,
+    SoilMoisture1: number,
+    SoilMoisture2: number,
+    TDS: number,
+    Temperature: number,
+    Turbidity: number,
+    WaterLevel1: number,
+    WaterLevel2: number;
+};

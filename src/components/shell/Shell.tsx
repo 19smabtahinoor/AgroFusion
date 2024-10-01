@@ -39,11 +39,6 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
     { name: 'Help', to: '/dashboard/help', icon: svg.info },
   ];
 
-  // const others = [
-    // { name: 'Account', to: '/dashboard/account', icon: svg.profile },
-    // { name: 'Help', to: '/dashboard/help', icon: svg.info },
-  // ];
-
   const menus = links.map(({ name, to, icon: Icon }) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const pathname = usePathname();
@@ -68,32 +63,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
     );
   });
 
-  // const othersMenu = others.map(({ name, to, icon: Icon }) => {
-  //   // eslint-disable-next-line react-hooks/rules-of-hooks
-  //   const pathname = usePathname();
-  //   const isActive = pathname.endsWith(to);
-  //   return (
-  //     <Link
-  //       key={to}
-  //       href={to}
-  //       className={cn(
-  //         'px-6 py-3 hover:bg-secondary text-slate-500 transition-all duration-200 text-sm rounded-md font-semibold flex items-center gap-x-2',
-  //         { 'bg-secondary text-primary': isActive }
-  //       )}
-  //     >
-  //       <Image
-  //         src={Icon}
-  //         width={25}
-  //         height={25}
-  //         className={cn('', { 'opacity-30': !isActive })}
-  //         alt="icon"
-  //       />
-  //       <span className="">{name}</span>
-  //     </Link>
-  //   );
-  // });
-
-  const { data, status } = useSession();
+  const { data } = useSession();
   const { user } = data || {};
 
   const content = (
@@ -163,10 +133,6 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
             <h1 className="px-6 text-sm mb-2 text-slate-500">Menu</h1>
             {menus}
           </div>
-          {/* <div>
-            <h1 className="px-6 text-sm mb-2 text-slate-500">Others</h1>
-            {othersMenu}
-          </div> */}
         </aside>
 
         <main className="flex-1 p-5 overflow-y-auto">{children}</main>

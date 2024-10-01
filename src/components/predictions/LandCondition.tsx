@@ -1,19 +1,35 @@
-"use client"
+"use client";
 import ModuleTitle from '@/components/ui/ModuleTitle';
 import { getData } from "@/datacenter/esp32";
+import { SoilData } from '@/types/types';
 import { useEffect, useState } from 'react';
 
+
+
 const LandCondition = () => {
-  const [soilData, setSoilData] = useState<any>(null);
+  const [soilData, setSoilData] = useState<SoilData>({
+    Altitude: 0,
+    Humidity: 0,
+    Latitude: 0,
+    Longitude: 0,
+    SoilMoisture1: 0,
+    SoilMoisture2: 0,
+    TDS: 0,
+    Temperature: 0,
+    Turbidity: 0,
+    WaterLevel1: 0,
+    WaterLevel2: 0
+  });
+  console.log("🚀 ~ LandCondition ~ soilData:", soilData);
 
   //low turbidity means high water purity
-  const waterPurity = 100-soilData?.Turbidity;
+  const waterPurity = 100 - soilData?.Turbidity;
 
   //if moisture is 10%-- then dryness would be 90%.
   // moisture 0-10%-- very dry
   // moisture 90-100% --- very wet
-  const soilDryness = 100-((soilData?.SoilMoisture1 + soilData?.SoilMoisture2)/2); 
-  
+  const soilDryness = 100 - ((soilData?.SoilMoisture1 + soilData?.SoilMoisture2) / 2);
+
 
 
 
@@ -22,13 +38,13 @@ const LandCondition = () => {
       try {
         const data = await getData();
         setSoilData(data);
-        console.log(data)
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
     fetchData();
-  }, [getData]);
+  }, []);
 
 
   const data = [
