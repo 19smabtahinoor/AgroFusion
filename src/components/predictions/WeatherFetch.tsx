@@ -84,16 +84,16 @@ const WeatherFetch: React.FC = async  () => {
   //   console.log(weatherData?.current)
   //   // `weatherData` now contains a simple structure with arrays for datetime and weather data
   //   //for forecasting 
-  //   for (let i = 0; i < weatherData.daily.time.length; i++) {
-  //       const dater = new Date(weatherData.daily.time[i].toISOString()).getUTCDate()
-  //       const month = new Date(weatherData.daily.time[i].toISOString()).getUTCMonth()+ 1;
-  //       const year = new Date(weatherData.daily.time[i].toISOString()).getUTCFullYear();
-  //       const dateeee = `${dater}/${month}/${year}`;
-  //       datesArr.push(dateeee)
-  //       precipitationProbabilityArr.push(weatherData.daily.precipitationProbability[i])
-  //       rainArr.push(weatherData.daily.rain[i])
-  //       precipitationArr.push(weatherData.daily.precipitation[i])
-  //   }
+    // for (let i = 0; i < weatherData.daily.time.length; i++) {
+    //     const dater = new Date(weatherData.daily.time[i].toISOString()).getUTCDate()
+    //     const month = new Date(weatherData.daily.time[i].toISOString()).getUTCMonth()+ 1;
+    //     const year = new Date(weatherData.daily.time[i].toISOString()).getUTCFullYear();
+    //     const dateeee = `${dater}/${month}/${year}`;
+    //     datesArr.push(dateeee)
+    //     precipitationProbabilityArr.push(weatherData.daily.precipitationProbability[i])
+    //     rainArr.push(weatherData.daily.rain[i])
+    //     precipitationArr.push(weatherData.daily.precipitation[i])
+    // }
 
     // console.log(weatherData?.current)
     // console.log(precipitationProbabilityArr, precipitationArr,rainArr)

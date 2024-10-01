@@ -22,7 +22,7 @@ useEffect(() => {
   return (
     <div className='border border-slate-200 px-2 py-3 rounded-full flex flex-row items-center space-x-2'>
 
-        <FaLocationDot className='text-slate-700 text-lg'/>
+        <FaLocationDot className='text-primary text-lg'/>
       <h1 className='text-xs'>{location?.address_line1}</h1>
       
     </div>

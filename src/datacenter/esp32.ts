@@ -6,6 +6,7 @@ import { ref, get } from "firebase/database";
       const headerRef = ref(database, 'ESP32'); // Get ref of 'data'
       const snapshot = await get(headerRef);
        // Get data of 'data'
+       
       return snapshot.val();
       
 

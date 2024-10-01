@@ -14,7 +14,7 @@ const UVindexSituation = () => {
             </div>
             <h1 className="text-lg">Result: </h1>
           </div>
-          <ViewReportBtn />
+          {/* <ViewReportBtn /> */}
         </div>
         <UVindexFetch />
       </div>

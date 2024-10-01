@@ -21,7 +21,8 @@ interface UVIndexChartProps {
 const UVIndexChart: React.FC<UVIndexChartProps> = ({ UVIndexData }) => {
 
     const hourlyTime = []
-    for (let i = 0; i < UVIndexData.hourly.time.length; i++) {
+    
+    for (let i = 0; i < UVIndexData?.hourly?.time.length; i++) {
         const date = new Date(UVIndexData?.hourly?.time[i]);
         const formattedTime = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true });
         hourlyTime.push(formattedTime)
