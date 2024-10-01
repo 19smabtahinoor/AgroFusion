@@ -10,20 +10,30 @@ export default function HumidityBubbleChart() {
             label: 'First Dataset',
             data: [
                 {
-                    x: 0,
-                    y: 0,
+                    x: 2,
+                    y: 30,
                     r: 15
                 },
                 {
                     x: 50,
-                    y: 50,
+                    y: 2,
                     r: 15
                 },
                 {
                     x: 20,
-                    y: 100,
+                    y: 3,
                     r: 15
-                }
+                },
+                {
+                    x: 20,
+                    y: 4,
+                    r: 15
+                },
+                {
+                    x: 20,
+                    y: 5,
+                    r: 15
+                },
             ],
             backgroundColor: '#008A09'
         }]
@@ -37,9 +47,9 @@ export default function HumidityBubbleChart() {
                     responsive: true,
                     scales: {
                         x: {
-                            max: 60,
+                            max: 5,
                             ticks: {
-                                stepSize: 10
+                                stepSize: 1
 
                             }
                         },

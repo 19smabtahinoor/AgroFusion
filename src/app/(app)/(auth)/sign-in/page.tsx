@@ -1,11 +1,14 @@
 'use client';
 
+import { Button } from "@/components/ui/button";
 import Error from "@/components/ui/Errors";
+import icons from "@/constants/menuIcons";
 import { useToast } from "@/hooks/use-toast";
 import SignInSchema from "@/schemas/signInSchema";
 import { SignInFormData } from "@/types/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -33,7 +36,7 @@ export default function Page() {
             email: data.email,
             password: data.password,
             redirect: false,
-            callbackUrl: '/'
+            callbackUrl: '/dashboard'
         });
         if (result?.ok) {
             const url = result?.url as string;
@@ -52,71 +55,41 @@ export default function Page() {
 
 
     return (
-        <section>
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="h-full w-full">
-                    image
+        <section className="container h-[100vh] flex justify-center items-center">
+            <div className="grid grid-cols-3 relative">
+                <div className="col-span-1 flex flex-col items-center relative ">
+                    <Image src={icons.brandLogo2} alt="brand logo" />
+                    <Image src={icons.smart_firming} alt="brand logo" className="z-20" />
+                    <div className="bg-primary h-[50px] w-full absolute bottom-0 z-10"></div>
+                    <div className="absolute w-[80px] h-full -right-10 z-30 rounded-full bg-white" style={{ boxShadow: '-10px -0px 22px -13px #aaa;' }}></div>
                 </div>
-                <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-                    <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-                        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign in</h2>
-                        <p className="mt-2 text-sm text-gray-600">
-                            Don&apos;t have an account?{' '}
-                            <Link
-                                href="/sign-up"
-                                title=""
-                                className="font-semibold text-black transition-all duration-200 hover:underline"
-                            >
-                                Create a free account
-                            </Link>
-                        </p>
-                        <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
-                            <div className="space-y-5">
+                <div className="col-span-2 flex items-center rounded-3xl ">
+                    <div className="w-3/6 mx-auto">
+                        <div >
+                            <h1 className="text-3xl font-bold mb-8 pl-2">Sign In</h1>
+                            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-2">
                                 <div>
-                                    <label htmlFor="" className="text-base font-medium text-gray-900">
-                                        {' '}
-                                        Email address{' '}
-                                    </label>
-                                    <div className="mt-2">
-                                        <input
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                            type="email"
-                                            placeholder="Email"
-                                            {...register('email')}
-                                        />
-                                        {errors.email && <Error>{errors.email.message}</Error>}
-                                    </div>
+                                    <input type="email" placeholder="Email" className="outline-none border-b border-slate-300 px-2 py-2 w-full" {...register('email')} />
+                                    {errors.email && <Error>{errors.email.message}</Error>}
                                 </div>
                                 <div>
-                                    <div className="flex items-center justify-between">
-                                        <label htmlFor="" className="text-base font-medium text-gray-900">
-                                            {' '}
-                                            Password{' '}
-                                        </label>
-                                    </div>
-                                    <div className="mt-2">
-                                        <input
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                            type="password"
-                                            placeholder="Password"
-                                            {...register('password')}
-                                        />
-                                        {errors.password && <Error>{errors.password.message}</Error>}
-                                    </div>
+                                    <input type="password" placeholder="Password" className="outline-none border-b border-slate-300 px-2 py-2 w-full" {...register('password')} />
+                                    {errors.password && <Error>{errors.password.message}</Error>}
                                 </div>
-                                <div>
-                                    <button
-                                        type="submit"
-                                        disabled={loading}
-                                        className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80 disabled:hover:bg-black disabled:opacity-60 disabled:cursor-not-allowed"
-                                    >
-                                        {loading ? <span className="flex items-center gap-x-2"><BiLoaderAlt className="animate-spin" /> Signing in...</span> : 'Sign In'}
-                                    </button>
+                                <div className="flex gap-x-2 py-2 px-2">
+                                    <p>Don't have an account?</p>
+                                    <Link href={'/sign-up'} className="text-primary hover:underline">Sign Up</Link>
                                 </div>
-                            </div>
-                        </form>
-
+                                <Button className="text-white w-full py-5 mt-5">
+                                    {loading ? <span className="flex items-center gap-x-2"><BiLoaderAlt className="animate-spin" /> Signing in...</span> : 'Sign In'}
+                                </Button>
+                            </form>
+                        </div>
                     </div>
+
+                </div>
+                <div>
+
                 </div>
             </div>
         </section>

@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import svg from '@/constants/menuIcons';
 import { cn } from '@/lib/utils';
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,11 +18,9 @@ import LetterAvatar from 'react-avatar';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
 import { PiSignOut } from 'react-icons/pi';
-
-import { signOut, useSession } from 'next-auth/react';
 import TopBarLocation from './TopBarLocation';
 
-export default function Sidebar({ children }: { children: React.ReactNode }) {
+export default function Sidebar({ children }: { children: React.ReactNode; }) {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const links = [
@@ -136,12 +135,15 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
             )}
           </div>
           <div className="flex items-center gap-x-3 px-6">
-            <Image src={svg.brandLogo} alt="Brand Logo" />
+            <Link href={'/'}>
+              <Image src={svg.brandLogo} alt="Brand Logo" />
+            </Link>
           </div>
         </div>
         <div className="pr-[100px] flex items-center gap-x-2">
           <TopBarLocation />
           <div>{content}</div>
+          {/* <AccountMenu user={user} /> */}
           <h1>{user?.name}</h1>
         </div>
       </nav>
