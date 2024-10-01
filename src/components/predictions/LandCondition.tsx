@@ -5,8 +5,9 @@ const LandCondition = () => {
     // { id: 1, title: 'Soil Moisture Content', value: '20%' },
     { id: 2, title: 'Soil Nutrient Levels', value: '73%' },
     // { id: 3, title: 'Soil pH Level', value: '6.0' },
-    { id: 4, title: 'Organic Matter', value: '89%' },
+    { id: 4, title: 'Organic Matter', value: '89%' }, // If TDS is high, organic matter is low
     { id: 5, title: 'Soil Dryness', value: '10%' },
+    { id: 6, title: 'Water Purity', value: '10%' },// If TDS is low, water purity is high
   ];
   return (
     <div className="pl-4">

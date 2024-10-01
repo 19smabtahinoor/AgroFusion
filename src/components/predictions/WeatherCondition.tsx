@@ -1,13 +1,15 @@
 import ModuleTitle from '../ui/ModuleTitle';
-import ViewReportBtn from '../ui/ViewReportBtn';
+import WeatherFetch from './WeatherFetch';
 
 const WeatherCondition = () => {
   return (
     <div>
       <div className="flex flex-row justify-between">
         <ModuleTitle title="Weather Conditions" />
-        <ViewReportBtn />
+        {/* <ViewReportBtn /> */}
       </div>
+
+      <WeatherFetch />
     </div>
   );
 };

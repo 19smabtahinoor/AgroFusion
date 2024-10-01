@@ -4,6 +4,8 @@ import PestActivityLineChart from './PestActivityLineChart';
 import SoilActivityState from './SoilActivityState';
 
 const SoilActivity = () => {
+  const soil_type = SoilActivityState(); 
+
   return (
     <>
       <div>
@@ -17,7 +19,9 @@ const SoilActivity = () => {
           <ViewReportBtn />
         </div>
 
-        <SoilActivityState />
+        <div>
+          <h1 className='text-xl text-gray'>{soil_type}</h1>
+        </div>
       </div>
     </>
   );

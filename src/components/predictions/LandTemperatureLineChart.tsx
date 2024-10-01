@@ -8,6 +8,8 @@ import {
 import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
+
+
 export default function LandTemperatureLineChart() {
   // const labels = Utils.months({count: 7});
   const data = {

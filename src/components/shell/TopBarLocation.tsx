@@ -24,6 +24,7 @@ useEffect(() => {
 
         <FaLocationDot className='text-slate-700 text-lg'/>
       <h1 className='text-xs'>{location?.address_line1}</h1>
+      
     </div>
   )
 }
