@@ -1,64 +1,66 @@
 'use client';
 import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
+import 'chartjs-adapter-date-fns';
 import { Bubble } from 'react-chartjs-2';
-
 Chart.register(CategoryScale);
+
+
+const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);  // Convert the date string to a Date object
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}/${month}/${day}`;
+};
+
 export default function HumidityBubbleChart() {
-    const data = {
-        datasets: [{
-            label: 'First Dataset',
-            data: [
-                {
-                    x: 2,
-                    y: 30,
-                    r: 15
-                },
-                {
-                    x: 50,
-                    y: 2,
-                    r: 15
-                },
-                {
-                    x: 20,
-                    y: 3,
-                    r: 15
-                },
-                {
-                    x: 20,
-                    y: 4,
-                    r: 15
-                },
-                {
-                    x: 20,
-                    y: 5,
-                    r: 15
-                },
-            ],
-            backgroundColor: '#008A09'
-        }]
+
+    const apiData = [
+        { humidity: 50, date: 'Saturday, October 01 2024 15:48:33' },
+        { humidity: 40, date: 'Sunday, October 02 2024 15:48:33' },
+        { humidity: 43, date: 'Monday, October 03 2024 15:48:33' },
+        { humidity: 80, date: 'Tuesday, October 04 2024 15:48:33' },
+    ];
+
+    const chartData = {
+        datasets: [
+            {
+                label: 'Humidity Data',
+                data: apiData.map(item => ({
+                    x: formatDate(item.date),  // Format the date as yyyy/mm/dd
+                    y: item.humidity,
+                    r: 10,  // Fixed radius or dynamic
+                })),
+                backgroundColor: '#008A09',
+            },
+        ],
     };
+
+
 
     return (
         <div >
             <Bubble
-                data={data}
+                data={chartData}
                 options={{
                     responsive: true,
                     scales: {
                         x: {
-                            max: 5,
-                            ticks: {
-                                stepSize: 1
-
-                            }
+                            title: {
+                                display: true,
+                                text: 'Date',
+                            },
+                            type: 'category',  // Use 'category' to display formatted date strings
                         },
                         y: {
-                            max: 200,
-                            ticks: {
-                                stepSize: 50
-                            }
-                        }
+                            title: {
+                                display: true,
+                                text: 'Humidity (%)',
+                            },
+                            min: 0,
+                            max: 100,
+                        },
                     }
                 }}
             />
