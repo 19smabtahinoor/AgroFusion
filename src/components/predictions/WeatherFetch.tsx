@@ -3,22 +3,9 @@
 // import { fetchWeatherApi } from 'openmeteo';
 import {longitude, latitude} from '../../datacenter/LocationTrack';
 
-import React, { useState } from 'react'
-import {
-    CategoryScale,
-    ChartData,
-    LineElement,
-    LinearScale,
-    PointElement,
-    Tooltip ,
-    TooltipItem
-
-  } from 'chart.js';
-  import Chart from 'chart.js/auto';
-  import { Line,  } from 'react-chartjs-2';
+import React from 'react'
 import getQuery from '@/lib/functions/FetchQuery';
 import WeatherConditionChart from './WeatherConditionChart';
-  Chart.register(CategoryScale, LineElement, LinearScale, PointElement,Tooltip);
 
 
 const WeatherFetch: React.FC = async  () => {

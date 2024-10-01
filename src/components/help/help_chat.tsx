@@ -1,14 +1,17 @@
 'use client';
 import AI from '@/icons/AI.jpg';
 import AskAI from '@/icons/Askai.png';
-import Avatar from '@/icons/Avatar.jpg';
+import LetterAvatar from 'react-avatar';
 
 import { useChat } from 'ai/react';
 import Image from 'next/image';
 import Markdown from './markdown';
+import {  useSession } from 'next-auth/react';
 
 export default function HelpChat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { data } = useSession();
+  const { user } = data || {};
 
   return (
     <div>
@@ -18,16 +21,21 @@ export default function HelpChat() {
             <div key={m.id}>
               {m.role === 'user' ? (
                 <div className="flex flex-row-reverse items-start space-x-2 py-6">
-                  <Image
-                    src={Avatar}
-                    width={40}
-                    height={40}
-                    alt="avatar"
-                    className="rounded-full w-12 h-12 object-cover ml-2"
-                  />
-                  <div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
-                    <Markdown text={m.content} />
+                    <div className='ml-2'>
+                    <LetterAvatar
+                       name={user?.name}
+                        className="rounded-full"
+                       size="40"
+                        textSizeRatio={2.7}
+          />
+                    </div>
+                  <div className='flex flex-col space-y-2'>
+                    <p className='text-sm font-semibold text-end'>{user?.name}</p>
+                    <div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
+                      <Markdown text={m.content} />
+                    </div>
                   </div>
+                 
                 </div>
               ) : (
                 <div className="flex flex-row  items-start space-x-2">
@@ -40,9 +48,15 @@ export default function HelpChat() {
                       index === messages.length - 1 ? 'animate-bounce' : ''
                     }`}
                   />
-                  <div className="w-auto bg-primary px-4 py-2 rounded-lg  text-white">
+
+                  <div className='flex flex-col space-y-2'>
+                    <p className='text-sm font-semibold text-left text-primary'>AgroFutorist AI</p>
+                    <div className="w-auto bg-primary px-4 py-2 rounded-lg  text-white">
                     <Markdown text={m.content} />
                   </div>
+                  </div>
+
+                 
                 </div>
               )}
             </div>

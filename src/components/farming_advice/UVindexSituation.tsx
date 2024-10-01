@@ -1,6 +1,7 @@
 import ModuleTitle from '../ui/ModuleTitle';
 import ViewReportBtn from '../ui/ViewReportBtn';
 import GroundWaterLevelLineChart from './GroundWaterLevelLineChart';
+import UVindexFetch from './UVindexFetch';
 
 const UVindexSituation = () => {
   return (
@@ -15,8 +16,7 @@ const UVindexSituation = () => {
           </div>
           <ViewReportBtn />
         </div>
-        
-        <GroundWaterLevelLineChart />
+        <UVindexFetch />
       </div>
     </>
   );
