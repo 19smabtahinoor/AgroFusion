@@ -9,8 +9,8 @@ import WeatherConditionChart from './WeatherConditionChart';
 
 
 const WeatherFetch: React.FC = async  () => {
-    const lat = latitude; 
-    const long = longitude;
+    // const lat = latitude; 
+    // const long = longitude;
     // lat=23.8221&lon=90.4274
     // const datesArr = [];
     // const precipitationProbabilityArr = [];

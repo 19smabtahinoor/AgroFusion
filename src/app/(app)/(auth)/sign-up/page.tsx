@@ -81,7 +81,7 @@ export default function Page() {
                                     {errors.password && <Error>{errors.password.message}</Error>}
                                 </div>
                                 <div className="flex gap-x-2 py-2 px-2">
-                                    <p>Don't have an account?</p>
+                                    <p>Don&apos;t have an account?</p>
                                     <Link href={'/sign-in'} className="text-primary hover:underline">Sign In</Link>
                                 </div>
                                 <Button className="text-white w-full py-5 mt-5">
