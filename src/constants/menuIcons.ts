@@ -5,14 +5,14 @@ import info from '@/icons/Info Square.svg';
 import profile from '@/icons/Profile.svg';
 import setting from '@/icons/Setting.svg';
 import siren from '@/icons/Siren.svg';
+import subtract from '@/icons/Subtract.svg';
 import trot_cards from '@/icons/Tarot Cards.svg';
 import abrahi from '@/icons/abtahi.png';
 import agriculturalRobot from '@/icons/agricultural-robot.svg';
 import brandLogo2 from '@/icons/brand_logo2.svg';
 import farhan from '@/icons/farhan.png';
-import farmer from '@/icons/farmer.png';
-import farming from '@/icons/farming_field.jpeg';
 import hardware from '@/icons/hardware.svg';
+import headerFrame from '@/icons/headerFrame.svg';
 import ragib from '@/icons/ragib.png';
 import riceFarming from '@/icons/rice_farming.png';
 import smart_firming from '@/icons/smart_farming.svg';
@@ -30,8 +30,6 @@ const icons = {
     siren,
     trot_cards,
     brandLogo,
-    farmer,
-    farming,
     riceFarming,
     hardware,
     agriculturalRobot,
@@ -43,7 +41,9 @@ const icons = {
     sumaiya,
     vector,
     brandLogo2,
-    smart_firming
+    smart_firming,
+    subtract,
+    headerFrame
 };
 
 export default icons;
