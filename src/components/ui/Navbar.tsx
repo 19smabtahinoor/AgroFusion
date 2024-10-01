@@ -16,7 +16,6 @@ export default function Navbar() {
         { name: 'Home', to: '/' },
         { name: 'About', to: '/about' },
         { name: 'Contact', to: '/contact' },
-        { name: 'Dashboard', to: '/dashboard/field_overview' },
     ];
 
     useEffect(() => {
@@ -32,14 +31,16 @@ export default function Navbar() {
 
     return (
         <div className="sticky bg-white border-b lg:border-0 border-slate-200 top-0 mb-5 z-[100]">
-            <div className="py-2 w-5/6 mx-auto">
-                <div className="flex flex-col gap-y-5 md:flex-row items-start md:items-center md:justify-between ">
-                    <div className="flex gap-x-5 items-center w-full text-lg py-2">
-                        <div className="block md:hidden cursor-pointer" onClick={() => setMobileMenu(true)}><HiMenuAlt2 className="text-2xl" /></div>
-                        <Image src={icons.brandLogo} alt="Brand Logo" />
-                    </div>
-                    <div className="hidden md:flex items-center gap-x-5">
-                        <NavItems links={links} key="desktop" />
+            <div className="container">
+                <div className="py-2 w-5/6 mx-auto">
+                    <div className="flex flex-col gap-y-5 md:flex-row items-start md:items-center md:justify-between">
+                        <div className="flex gap-x-5 items-center w-full text-lg py-2">
+                            <div className="block md:hidden cursor-pointer" onClick={() => setMobileMenu(true)}><HiMenuAlt2 className="text-2xl" /></div>
+                            <Image src={icons.brandLogo} alt="Brand Logo" />
+                        </div>
+                        <div className="hidden md:flex items-center gap-x-5">
+                            <NavItems links={links} key="desktop" />
+                        </div>
                     </div>
                 </div>
             </div>
