@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const appUrl = 'https://api-test.openepi.io/';
+const appUrl = 'https://agro-fusion.vercel.app/api/humidity/';
 
 const nextConfig = {
 

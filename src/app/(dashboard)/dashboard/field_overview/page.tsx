@@ -6,8 +6,12 @@ import Temperature from "@/components/field_overview/Temperature";
 import WaterLevel from "@/components/field_overview/WaterLevel";
 import WaterLevelLineChart from "@/components/field_overview/WaterLevelLineChart";
 import PageTitle from "@/components/ui/PageTitle";
+import getQuery from "@/lib/functions/FetchQuery";
 
-export default function page() {
+export default async function Page() {
+
+    const { data } = await getQuery('https://agro-fusion.vercel.app/api/humidity/');
+
     return (
         <main className="lg:px-16">
             <PageTitle title="Field Overview" />
@@ -16,7 +20,7 @@ export default function page() {
                 <div className="grid grid-cols-1 lg:grid-cols-5">
                     <div className="col-span-3 border-b border-slate-200 px-10 py-5">
                         <Humidity />
-                        <HumidityBubbleChart />
+                        <HumidityBubbleChart data={data} />
                     </div>
                     <div className="col-span-2 border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
                         <Temperature />

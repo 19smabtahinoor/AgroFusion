@@ -14,43 +14,43 @@ const formatDate = (isoDateStr: string) => {
 };
 
 
-export default function HumidityBubbleChart() {
+export default function HumidityBubbleChart({ data }: { data: Humidity[]; }) {
 
-    const apiData: Humidity[] = [
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 50, createdAt: '2024-09-25T05:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 40, createdAt: '2024-09-26T19:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 43, createdAt: '2024-09-27T19:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 80, createdAt: '2024-09-28T19:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 75, createdAt: '2024-09-29T19:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 65, createdAt: '2024-09-30T19:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 55, createdAt: '2024-10-01T19:37:14.867+00:00',
-            updatedAt: ''
-        },
-        {
-            _id: '66fc4f6a67c0669af3a17d56', humidity: 55, createdAt: '2024-10-02T19:37:14.867+00:00',
-            updatedAt: ''
-        }
+    // const apiData: Humidity[] = [
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d51', humidity: 50, createdAt: '2024-09-25T05:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d52', humidity: 40, createdAt: '2024-09-26T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d53', humidity: 43, createdAt: '2024-09-27T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d54', humidity: 80, createdAt: '2024-09-28T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d55', humidity: 75, createdAt: '2024-09-29T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d56', humidity: 65, createdAt: '2024-09-30T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d57', humidity: 55, createdAt: '2024-10-01T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     },
+    //     {
+    //         _id: '66fc4f6a67c0669af3a17d58', humidity: 55, createdAt: '2024-10-02T19:37:14.867+00:00',
+    //         updatedAt: ''
+    //     }
 
-    ];
+    // ];
 
     const getLastFiveDaysData = (data: Humidity[]) => {
         const today = new Date(); // Get today's date
@@ -64,7 +64,7 @@ export default function HumidityBubbleChart() {
         });
     };
 
-    const lastFiveDaysData = getLastFiveDaysData(apiData);
+    const lastFiveDaysData = getLastFiveDaysData(data);
 
     const chartData = {
         datasets: [
