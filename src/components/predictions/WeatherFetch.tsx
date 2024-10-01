@@ -1,7 +1,7 @@
 // 'use client';
 
 // import { fetchWeatherApi } from 'openmeteo';
-import {longitude, latitude} from '../../datacenter/LocationTrack';
+// import {longitude, latitude} from '../../datacenter/LocationTrack';
 
 import React from 'react'
 import getQuery from '@/lib/functions/FetchQuery';
