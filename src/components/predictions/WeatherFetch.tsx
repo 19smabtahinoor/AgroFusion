@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 // import { fetchWeatherApi } from 'openmeteo';
 import {longitude, latitude} from '../../datacenter/LocationTrack';
@@ -17,6 +17,7 @@ import {
   import Chart from 'chart.js/auto';
   import { Line,  } from 'react-chartjs-2';
 import getQuery from '@/lib/functions/FetchQuery';
+import WeatherConditionChart from './WeatherConditionChart';
   Chart.register(CategoryScale, LineElement, LinearScale, PointElement,Tooltip);
 
 
@@ -115,51 +116,7 @@ const WeatherFetch: React.FC = async  () => {
 
     //implementing chart js
 
-    const data: ChartData<'line' | 'bar', number[], string> = {
-        labels: weatherPredictionData?.daily?.time,
-        datasets: [
-          {
-            label: 'Precipitation Probability Max(%)',
-            data: weatherPredictionData?.daily?.precipitation_probability_max,
-            fill: false,
-            borderColor: '#008A09',
-            pointBorderWidth: 5,
-            tension: 0.1,
-          },
-          {
-            type: 'bar' as const,
-            label: 'Rain Sum(mm)',
-            data: weatherPredictionData?.daily?.rain_sum,
-            backgroundColor: "#00308F",
-            borderWidth: 1    
-          },
-          {
-            type: 'bar' as const,
-            label: 'Precipitation Sum(mm)',
-            data: weatherPredictionData?.daily?.precipitation_sum,
-            backgroundColor: "#ffde21",
-            borderWidth: 1    
-          },
-        ],
-      };
 
-      const options = {
-        responsive: true,
-        scales: {
-            x: {
-              max: 60,
-              ticks: {
-                stepSize: 20,
-              },
-            },
-            y: {
-              max: 100,
-              ticks: {
-                stepSize: 20,
-              },
-            },
-          },
-        }
       
 
   return (
@@ -176,10 +133,10 @@ const WeatherFetch: React.FC = async  () => {
             <h2>Rain:<span className='font-bold'> {weatherPredictionData?.current?.rain}mm</span></h2>
             </div>
         </div>
-      <Line<any>
-        data={data}
-        options={options}
-      />
+  
+
+
+      <WeatherConditionChart weatherPredictionData={weatherPredictionData}/>
 
   </div>
   )

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const appUrl = 'http://localhost:3000/';
+const appUrl = 'https://api-test.openepi.io/';
 
 const nextConfig = {
 
