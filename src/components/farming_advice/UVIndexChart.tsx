@@ -28,6 +28,7 @@ const UVIndexChart: React.FC<any> = ({ UVIndexData,uvindexarr }) => {
     check_uv_index?.level == 'High' ? uvindexcolor.push('#ec0000') : check_uv_index?.level == 'Moderate' ? uvindexcolor?.push('#ecca00') : uvindexcolor.push('#008A09'); 
     uvindexarr?.push(check_uv_index);
   } 
+  
 
   const data: ChartData<'line' | 'bar', number[], string> = {
     labels: UVIndexData?.daily?.time,
