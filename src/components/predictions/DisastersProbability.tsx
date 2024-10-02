@@ -1,10 +1,13 @@
-'use client';
-
+"use client"
 import { useState } from 'react';
 import ModuleTitle from '../ui/ModuleTitle';
+import DisastersFetch from './DisastersFetch';
+
 
 const DisastersProbability = () => {
-  const [disaster, setDisaster] = useState('Flood');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [disaster, setDisaster] = useState<any>('Flood');
+
 
   return (
     <div>
@@ -37,20 +40,8 @@ const DisastersProbability = () => {
       </div>
 
       {/* probability */}
+      <DisastersFetch disaster={disaster} />
 
-      {disaster === 'Flood' ? (
-        <div className="mt-5">
-          <div className="w-36 h-36 text-white bg-red-600 rounded-full flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-semibold">40%</h1>
-          </div>
-        </div>
-      ) : (
-        <div className="mt-5">
-          <div className="w-36 h-36 text-white bg-red-600 rounded-full flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-semibold">70%</h1>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

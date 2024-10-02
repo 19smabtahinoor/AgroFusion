@@ -9,14 +9,10 @@ import WeatherConditionChart from './WeatherConditionChart';
 
 
 const WeatherFetch: React.FC = async  () => {
-    // const lat = latitude; 
-    // const long = longitude;
-    // lat=23.8221&lon=90.4274
-    // const datesArr = [];
-    // const precipitationProbabilityArr = [];
-    // const rainArr = [];
-    // const precipitationArr = [];
 
+
+  // Latitude 23.8221
+  // Longitude  90.4274
     const weatherPredictionData =await getQuery(`https://api.open-meteo.com/v1/forecast?latitude=23.8221&longitude=90.4274&daily=precipitation_sum,rain_sum,precipitation_probability_max&timezone=auto&current=precipitation,rain`)
 
     //current time: 
