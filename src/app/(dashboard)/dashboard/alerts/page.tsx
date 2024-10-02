@@ -1,8 +1,10 @@
 import AlertsComp from "@/components/alerts/AlertsComp";
 import PageTitle from "@/components/ui/PageTitle";
+import getQuery from "@/lib/functions/FetchQuery";
 
 
-export default function page() {
+export default async function page() {
+    const { data: alerts } = await getQuery('https://agro-fusion.vercel.app/api/alert/');
 
 
    
@@ -11,7 +13,7 @@ export default function page() {
         <PageTitle title="Alerts" />
 
         <div className="flex flex-col space-y-2 py-8">
-            <AlertsComp />
+            <AlertsComp data={alerts}/>
         </div>
     </main>
     );
