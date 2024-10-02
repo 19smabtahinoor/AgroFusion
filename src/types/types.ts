@@ -60,4 +60,5 @@ export type SoilData = {
     Turbidity: number,
     WaterLevel1: number,
     WaterLevel2: number;
+    pH: number;
 };

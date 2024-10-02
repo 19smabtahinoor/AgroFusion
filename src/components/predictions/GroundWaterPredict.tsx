@@ -17,7 +17,8 @@ const GroundWaterPredict = () => {
     Temperature: 0,
     Turbidity: 0,
     WaterLevel1: 0,
-    WaterLevel2: 0
+    WaterLevel2: 0,
+    pH:0
   });
 
 
