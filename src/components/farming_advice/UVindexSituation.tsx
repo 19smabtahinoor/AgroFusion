@@ -1,7 +1,15 @@
 import ModuleTitle from '../ui/ModuleTitle';
 import UVindexFetch from './UVindexFetch';
 
-const UVindexSituation = () => {
+interface UVindexSituationProps {
+
+  uvindexarr: { uv: number; level: string }[];
+
+}
+
+const UVindexSituation: React.FC<UVindexSituationProps> = ({ uvindexarr }) => {
+
+
   return (
     <>
       <div>
@@ -13,7 +21,7 @@ const UVindexSituation = () => {
             <h1 className="text-lg">Result: </h1>
           </div>
         </div>
-        <UVindexFetch />
+        <UVindexFetch uvindexarr={uvindexarr} />
       </div>
     </>
   );

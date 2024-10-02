@@ -20,16 +20,16 @@ const LandCondition = () => {
     WaterLevel1: 0,
     WaterLevel2: 0
   });
-  console.log("🚀 ~ LandCondition ~ soilData:", soilData);
 
   //low turbidity means high water purity
-  const waterPurity = 100 - soilData?.Turbidity;
+  const waterPurity = 214 - soilData?.TDS;
 
   //if moisture is 10%-- then dryness would be 90%.
   // moisture 0-10%-- very dry
   // moisture 90-100% --- very wet
   const soilDryness = 100 - ((soilData?.SoilMoisture1 + soilData?.SoilMoisture2) / 2);
-
+  const inorganic_matter = 100 - soilData?.Turbidity;
+  const organic_matter = soilData?.Turbidity;
 
 
 
@@ -49,8 +49,8 @@ const LandCondition = () => {
 
   const data = [
     // { id: 1, title: 'Soil Moisture Content', value: '20%' },
-    { id: 2, title: 'Soil Nutrient Levels', value: '73%' },
-    { id: 4, title: 'Organic Matter', value: '89%' }, // If TDS is high, organic matter is low
+    { id: 2, title: 'Inorganic Matter', value: `${inorganic_matter}%` },
+    { id: 4, title: 'Organic Matter', value: `${organic_matter}%` }, // If TDS is high, organic matter is low
     { id: 5, title: 'Soil Dryness', value: `${soilDryness}%` },
     { id: 6, title: 'Water Purity', value: `${waterPurity}%` },
   ];

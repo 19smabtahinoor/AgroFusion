@@ -11,7 +11,7 @@ import getQuery from "@/lib/functions/FetchQuery";
 export default async function Page() {
 
     const { data: humidityData } = await getQuery('https://agro-fusion.vercel.app/api/humidity/');
-    const { data: waterLevel } = await getQuery('http://localhost:3000/api/water_level/');
+    // const { data: waterLevel } = await getQuery('http://localhost:3000/api/water_level/');
 
     return (
         <main className="lg:px-16">
@@ -39,7 +39,7 @@ export default async function Page() {
                     </div>
                     <div className="col-span-2 border-l border-slate-200 px-5 py-5">
                         <WaterLevel />
-                        <WaterLevelLineChart data={waterLevel} />
+                        <WaterLevelLineChart data={[]} />
                     </div>
                 </div>
             </div>

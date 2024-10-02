@@ -3,9 +3,16 @@ import React from 'react';
 import UVIndexChart from './UVIndexChart';
 import { longitude, latitude } from '@/datacenter/LocationTrack';
 
-const UVindexFetch: React.FC = async () => {
+interface UVindexFetchProps {
+
+	uvindexarr: { uv: number; level: string }[];
+  
+  }
+
+const UVindexFetch: React.FC<UVindexFetchProps> = async ({ uvindexarr }) => {
 	const UVIndexData = await getQuery(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=uv_index_max&timezone=auto`);
 
+	console.log(uvindexarr)
 
 	return (
 		<div>
@@ -19,7 +26,7 @@ const UVindexFetch: React.FC = async () => {
             </div> 
         </div>*/}
 
-			<UVIndexChart UVIndexData={UVIndexData} />
+			<UVIndexChart UVIndexData={UVIndexData} uvindexarr={uvindexarr} />
 
 		</div>
 	);
