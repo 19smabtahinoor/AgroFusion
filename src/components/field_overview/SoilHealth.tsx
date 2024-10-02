@@ -3,6 +3,7 @@ import ModuleTitle from "../ui/ModuleTitle";
 import SoilHealthPieChart from "./SoilHealthBarChart";
 import { getData } from "@/datacenter/esp32";
 import { SoilData } from '@/types/types';
+import axios from "axios";
 import { useEffect, useState } from 'react';
 
 export default function SoilHealth() {
@@ -25,7 +26,7 @@ export default function SoilHealth() {
       const soilMoisture =(soilData?.SoilMoisture1 + soilData?.SoilMoisture2) / 2;
       const water_level =(soilData?.WaterLevel1 + soilData?.WaterLevel2) / 2;
       const organic_matter = soilData?.Turbidity;
-    
+
     
     
       useEffect(() => {
@@ -48,6 +49,24 @@ export default function SoilHealth() {
       }else {
         currentHealthComment = "Good"
       }
+
+          
+      //push alert 
+  setTimeout(() => {
+    if (currentHealthComment == "Too Bad"){
+      axios.post('/api/alert', {
+        alert: `Soil Health is ${currentHealthComment}`,
+        description: `Ask to help center for soil health improvement.`,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }  }, 21600000);
+  
+
 
 
     return (

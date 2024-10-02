@@ -33,6 +33,10 @@ export type HumiditySchemaType = {
 export type WaterLevelSchemaType = {
     water_level: number,
 };
+export type AlertSchemaType = {
+    alert: string,
+    description: string,
+};
 
 export type Humidity = {
     _id: string,
@@ -61,4 +65,13 @@ export type SoilData = {
     WaterLevel1: number,
     WaterLevel2: number;
     pH: number;
+};
+
+
+export type Alert = {
+    _id: string,
+    alert: string,
+    description: string,
+    createdAt: string,
+    updatedAt: string;
 };

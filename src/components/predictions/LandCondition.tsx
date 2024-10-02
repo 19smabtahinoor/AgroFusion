@@ -2,6 +2,7 @@
 import ModuleTitle from '@/components/ui/ModuleTitle';
 import { getData } from "@/datacenter/esp32";
 import { SoilData } from '@/types/types';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 
@@ -32,6 +33,22 @@ const LandCondition = () => {
   const soilDryness = 100 - ((soilData?.SoilMoisture1 + soilData?.SoilMoisture2) / 2);
   const inorganic_matter = 100 - soilData?.Turbidity;
   const organic_matter = soilData?.Turbidity;
+
+  //push alert 
+  setTimeout(() => {
+  if (soilDryness > 90){
+    axios.post('/api/alert', {
+      alert: `Soil Dryness is ${soilDryness}%`,
+      description: `The soil is extremely dry, with only ${100-soilDryness}% moisture content remaining.`,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }  }, 21600000);
+
 
 
 
