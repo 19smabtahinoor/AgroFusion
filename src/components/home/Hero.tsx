@@ -5,8 +5,8 @@ export default function Hero() {
     return (
         <header>
             <div className="w-full lg:w-5/6 mx-auto mt-[50px] mb-[200px] relative">
-                <div className="lg:absolute top-20 left-14 flex flex-col gap-y-16">
-                    <div className="text-5xl font-bold flex">
+                <div className="lg:absolute top-20 lg:left-14 flex flex-col">
+                    <div className="text-5xl font-bold flex mb-[8%]">
                         <h1 className="text-primary">Agro</h1>
                         <span>Fusion</span>
                     </div>

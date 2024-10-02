@@ -30,9 +30,20 @@ export type HumiditySchemaType = {
     humidity: number,
 };
 
+export type WaterLevelSchemaType = {
+    water_level: number,
+};
+
 export type Humidity = {
     _id: string,
     humidity: number,
+    createdAt: string,
+    updatedAt: string;
+};
+
+export type WaterLevel = {
+    _id: string,
+    water_level: number,
     createdAt: string,
     updatedAt: string;
 };
