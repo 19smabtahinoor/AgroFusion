@@ -55,10 +55,16 @@ export default function SoilHealth() {
             <ModuleTitle title="Soil Health Check" />
             <div className='py-6'>
             <div className={`flex flex-row items-center justify-between mt-2 p-4 ${currentHealthComment == "Too Bad" ? "bg-red-100" : currentHealthComment == "Good" ? "bg--green-100" : "bg-yellow-100"} rounded-md`}>
-            <h2 className={`  ${currentHealthComment == "Too Bad" ? "text-red-600" : currentHealthComment == "Good" ? "text-green-600" : "text-yellow-600"}`}>Soil Health:  <span className={`font-bold   ${currentHealthComment == "Too Bad" ? "text-red-600" : currentHealthComment == "Good" ? "text-green-600" : "text-yellow-600"}`}>
+            <h2 className={` text-sm ${currentHealthComment == "Too Bad" ? "text-red-600" : currentHealthComment == "Good" ? "text-green-600" : "text-yellow-600"}`}>Soil Health:  <span className={`font-bold   ${currentHealthComment == "Too Bad" ? "text-red-600" : currentHealthComment == "Good" ? "text-green-600" : "text-yellow-600"}`}>
                 
             {currentHealthComment}
                 
+                </span></h2>
+
+                <h2 className={` text-sm  ${currentHealthComment == "Too Bad" ? "text-red-600" : currentHealthComment == "Good" ? "text-green-600" : "text-yellow-600"}`}>Current:  <span className={`font-bold   ${currentHealthComment == "Too Bad" ? "text-red-600" : currentHealthComment == "Good" ? "text-green-600" : "text-yellow-600"}`}>
+                
+                {currentHealthComment == "Too Bad" ? "Bellow 30%" : currentHealthComment == "Good" ? "Above 45%" : "Between 30% and 45%"} 
+                    
                 </span></h2>
             </div>
         </div>
