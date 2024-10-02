@@ -14,25 +14,14 @@ Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const UVIndexChart: React.FC<any> = ({ UVIndexData }) => {
 
-  const hourlyTime = [];
-
-  for (let i = 0; i < UVIndexData?.hourly?.time.length; i++) {
-    const date = new Date(UVIndexData?.hourly?.time[i]);
-    const formattedTime = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true });
-    hourlyTime.push(formattedTime);
-  }
-
-
   const data: ChartData<'line' | 'bar', number[], string> = {
-    labels: hourlyTime,
+    labels: UVIndexData?.daily?.time,
     datasets: [
       {
-        label: 'UV Index',
-        data: UVIndexData?.hourly?.uv_index,
-        fill: false,
-        borderColor: '#008A09',
-        pointBorderWidth: 5,
-        tension: 0.1,
+        type:"bar",
+        label: 'UV Index Max',
+        data: UVIndexData?.daily?.uv_index_max,
+        backgroundColor:'#008A09'
       }
     ],
   };
@@ -48,9 +37,9 @@ const UVIndexChart: React.FC<any> = ({ UVIndexData }) => {
         },
       },
       y: {
-        max: 100,
+        max: 20,
         ticks: {
-          stepSize: 20,
+          stepSize: 5,
         },
       },
     },

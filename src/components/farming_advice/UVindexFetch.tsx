@@ -1,28 +1,14 @@
-
 import getQuery from '@/lib/functions/FetchQuery';
 import React from 'react';
 import UVIndexChart from './UVIndexChart';
-
+import { longitude, latitude } from '@/datacenter/LocationTrack';
 
 const UVindexFetch: React.FC = async () => {
-	// const lat = latitude; 
-	// const long = longitude;
-	// lat=23.8221&lon=90.4274
-
-	const UVIndexData = await getQuery(`https://api.open-meteo.com/v1/forecast?latitude=23.822&longitude=90.4274&hourly=uv_index&timezone=auto`);
-
-	//current time: 
-	//     const date = new Date(UVIndexData?.current?.time);
-	//   const formattedTime = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true }); // For HH:MM format
-
-
+	const UVIndexData = await getQuery(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=uv_index_max&timezone=auto`);
 
 
 	return (
-
-
 		<div>
-
 			{/* current data   */}
 			{/* <div className='py-6'>
            <h2 className='font-semibold'>Current Weather Situation</h2>
@@ -32,8 +18,6 @@ const UVindexFetch: React.FC = async () => {
             <h2>Rain:<span className='font-bold'> {UVIndexData?.current?.rain}mm</span></h2>
             </div> 
         </div>*/}
-
-
 
 			<UVIndexChart UVIndexData={UVIndexData} />
 
