@@ -1,4 +1,3 @@
-import GroundWaterSolution from '@/components/farming_advice/UVSolution';
 import PestActivity from '@/components/farming_advice/PestActivity';
 import PestActivitySolution from '@/components/farming_advice/PestActivitySolution';
 import SoilActivity from '@/components/farming_advice/SoilActivity';
