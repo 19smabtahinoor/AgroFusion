@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
-import FloodFetch from './FloodFetch';
+// import FloodFetch from './FloodFetch';
 
 interface DisastersFetchProps {
   disaster: string;
@@ -24,7 +24,7 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({disaster}) => {
           </div>
 
            {/* flood chart   */}
-           <FloodFetch />
+           {/* <FloodFetch /> */}
         </div>
       ) : (
         <div className="mt-5">
