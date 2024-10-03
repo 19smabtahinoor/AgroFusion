@@ -4,14 +4,31 @@ import AskAI from '@/icons/Askai.png';
 import LetterAvatar from 'react-avatar';
 
 import { useChat } from 'ai/react';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import Markdown from './markdown';
-import {  useSession } from 'next-auth/react';
 
-export default function HelpChat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+export default function HelpChat({ ask }: { ask: string; }) {
+  const { messages, input, handleInputChange, handleSubmit, setInput } = useChat();
   const { data } = useSession();
   const { user } = data || {};
+
+  useEffect(() => {
+    if (ask.length > 1) {
+      setInput(ask);
+    }
+  }, [ask, setInput]);
+
+  useEffect(() => {
+    if (ask.length > 1) {
+      setTimeout(() => {
+        handleSubmit();
+      }, 500);
+    }
+  }, [ask.length, handleSubmit]);
+
+
 
   return (
     <div>
@@ -21,21 +38,21 @@ export default function HelpChat() {
             <div key={m.id}>
               {m.role === 'user' ? (
                 <div className="flex flex-row-reverse items-start space-x-2 py-6">
-                    <div className='ml-2'>
+                  <div className='ml-2'>
                     <LetterAvatar
-                       name={user?.name}
-                        className="rounded-full"
-                       size="40"
-                        textSizeRatio={2.7}
-          />
-                    </div>
+                      name={user?.name}
+                      className="rounded-full"
+                      size="40"
+                      textSizeRatio={2.7}
+                    />
+                  </div>
                   <div className='flex flex-col space-y-2'>
                     <p className='text-sm font-semibold text-end'>{user?.name}</p>
                     <div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
                       <Markdown text={m.content} />
                     </div>
                   </div>
-                 
+
                 </div>
               ) : (
                 <div className="flex flex-row  items-start space-x-2">
@@ -44,19 +61,18 @@ export default function HelpChat() {
                     width={40}
                     height={40}
                     alt="avatar"
-                    className={`rounded-full w-12 h-12 object-cover ${
-                      index === messages.length - 1 ? 'animate-bounce' : ''
-                    }`}
+                    className={`rounded-full w-12 h-12 object-cover ${index === messages.length - 1 ? 'animate-bounce' : ''
+                      }`}
                   />
 
                   <div className='flex flex-col space-y-2'>
                     <p className='text-sm font-semibold text-left text-primary'>AgroFutorist AI</p>
                     <div className="w-auto bg-primary px-4 py-2 rounded-lg  text-white">
-                    <Markdown text={m.content} />
-                  </div>
+                      <Markdown text={m.content} />
+                    </div>
                   </div>
 
-                 
+
                 </div>
               )}
             </div>

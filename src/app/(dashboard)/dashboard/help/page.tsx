@@ -1,10 +1,15 @@
 'use client';
 import HelpChat from '@/components/help/help_chat';
 import { useSession } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 export default function Page() {
   const { data } = useSession();
   const { user } = data || {};
+  const searchParam = useSearchParams();
+
+  const ask = searchParam.get('ask');
+  console.log("🚀 ~ Page ~ ask:", ask);
 
   return (
     <>
@@ -22,7 +27,7 @@ export default function Page() {
 
         {/* chat area  */}
         <div>
-          <HelpChat />
+          <HelpChat ask={ask || ""} />
         </div>
       </main>
     </>
