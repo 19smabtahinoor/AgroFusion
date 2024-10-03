@@ -3,7 +3,6 @@
 import {longitude, latitude} from '../../datacenter/LocationTrack';
 
 import React, { useEffect, useState } from 'react'
-import getQuery from '@/lib/functions/FetchQuery';
 import axios from 'axios';import {
   CategoryScale,
   LineElement,

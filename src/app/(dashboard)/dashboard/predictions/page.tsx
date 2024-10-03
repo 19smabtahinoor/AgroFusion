@@ -1,7 +1,6 @@
 import DisastersProbability from '@/components/predictions/DisastersProbability';
 import GroundWaterPredict from '@/components/predictions/GroundWaterPredict';
 import LandCondition from '@/components/predictions/LandCondition';
-import LandTemperatureLineChart from '@/components/predictions/LandTemperatureLineChart';
 import WeatherCondition from '@/components/predictions/WeatherCondition';
 import PageTitle from '@/components/ui/PageTitle';
 import LandTemp from '../../../../components/predictions/LandTemp';

@@ -61,7 +61,7 @@ const UVIndexChart: React.FC<any> = ({ setuvindexarr}) => {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  }, [setuvindexarr]);
   
 
   const data: ChartData<'line' | 'bar', number[], string> = {
