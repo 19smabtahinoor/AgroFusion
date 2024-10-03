@@ -24,12 +24,7 @@ const LandCondition = () => {
 
   });
 
-  //low turbidity means high water purity
   const waterPurity = 100-(soilData?.TDS/100);
-
-  //if moisture is 10%-- then dryness would be 90%.
-  // moisture 0-10%-- very dry
-  // moisture 90-100% --- very wet
   const soilDryness = 100 - ((soilData?.SoilMoisture1 + soilData?.SoilMoisture2) / 2);
   const inorganic_matter = 100 - soilData?.Turbidity;
   const organic_matter = soilData?.Turbidity;
