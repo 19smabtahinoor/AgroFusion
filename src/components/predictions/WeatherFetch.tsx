@@ -112,7 +112,7 @@ const WeatherFetch: React.FC = async  () => {
           <h2 className='font-semibold'>Current Weather Situation</h2>
             <div className='flex flex-row items-center justify-between mt-2 p-4 border border-slate-300 rounded-xl'>
             <h2>Last Updated:  <span className='font-bold'>{formattedTime}</span></h2>
-            <h2>Percipitation: <span className='font-bold'>{weatherPredictionData?.current?.precipitation}mm</span></h2>
+            <h2>Precipitation: <span className='font-bold'>{weatherPredictionData?.current?.precipitation}mm</span></h2>
             <h2>Rain:<span className='font-bold'> {weatherPredictionData?.current?.rain}mm</span></h2>
             </div>
         </div>

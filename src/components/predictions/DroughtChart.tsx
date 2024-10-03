@@ -19,7 +19,7 @@ interface FloodData {
   daily: { time: string[]; river_discharge: number[] };
 }
 
-const FloodChart: React.FC<{}> = () => {
+const DroughtChart: React.FC<{}> = () => {
 
   const [floodData, setFloodData] = useState<FloodData | null>(null);
 
@@ -81,4 +81,4 @@ const FloodChart: React.FC<{}> = () => {
   );
 };
 
-export default FloodChart;
+export default DroughtChart;

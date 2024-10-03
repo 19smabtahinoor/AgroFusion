@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import React from 'react'
+import FloodChart from './FloodChart';
 // import FloodFetch from './FloodFetch';
 
 interface DisastersFetchProps {
@@ -42,10 +43,6 @@ const droughtProbablity = 70;
   }, 21600000);
 
 
-    
-  
-
-    
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DisastersFetch: React.FC<DisastersFetchProps> = ({disaster}) => {
@@ -63,7 +60,7 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({disaster}) => {
           </div>
 
            {/* flood chart   */}
-           {/* <FloodFetch /> */}
+           <FloodChart />
         </div>
       ) : (
         <div className="mt-5">
