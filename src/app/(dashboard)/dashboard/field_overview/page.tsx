@@ -10,7 +10,7 @@ import getQuery from "@/lib/functions/FetchQuery";
 
 export default async function Page() {
 
-    const { data: humidityData } = await getQuery('http://localhost:3000/api/humidity/');
+    const { data: humidityData } = await getQuery('https://agro-fusion.vercel.app/api/humidity/');
     const { data: waterLevel } = await getQuery('https://agro-fusion.vercel.app/api/water_level/');
 
     return (
