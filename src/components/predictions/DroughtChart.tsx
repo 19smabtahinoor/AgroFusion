@@ -16,19 +16,19 @@ Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 
 
 interface FloodData {
-  daily: { time: string[]; river_discharge: number[] };
+  daily: { time: string[]; river_discharge: number[], temperature_2m_max: number[], relative_humidity_2m_max: number[] };
 }
 
 const DroughtChart = () => {
 
-  const [floodData, setFloodData] = useState<FloodData | null>(null);
+  const [DroughtData, setDroughtData] = useState<FloodData | null>(null);
 
 
   useEffect(() => {
-    axios.get(`https://flood-api.open-meteo.com/v1/flood?latitude=${latitude}&longitude=${longitude}&daily=river_discharge
+    axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,relative_humidity_2m_max
 `)
       .then(response => {
-        setFloodData(response.data);
+        setDroughtData(response.data);
       })
       .catch(error => {
         console.log(error);
@@ -38,13 +38,21 @@ const DroughtChart = () => {
 
     // console.log(floodData)
   const data: ChartData<'line' | 'bar', number[], string> = {
-    labels: floodData?.daily?.time,
+    labels: DroughtData?.daily?.time,
     datasets: [
       {
-        label: 'River Discharge(m³/s)',
-        data: floodData?.daily?.river_discharge || [],
+        label: 'Temperature (°C)',
+        data: DroughtData?.daily?.temperature_2m_max || [],
         fill: false,
         borderColor: '#008A09',
+        pointBorderWidth: 5,
+        tension: 0.1,
+      },
+      {
+        label: 'Relative Humidity (%)',
+        data: DroughtData?.daily?.relative_humidity_2m_max || [],
+        fill: false,
+        borderColor: '#00308F',
         pointBorderWidth: 5,
         tension: 0.1,
       },
@@ -62,7 +70,7 @@ const DroughtChart = () => {
         },
       },
       y: {
-        max: 300,
+        max: 200,
         ticks: {
           stepSize: 5,
         },
@@ -72,7 +80,7 @@ const DroughtChart = () => {
 
 
   return (
-    <div>
+    <div className='mt-5'>
       <Line
         data={data as ChartData<'line', number[], string>}//+
         options={options}

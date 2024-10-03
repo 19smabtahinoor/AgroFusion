@@ -48,7 +48,7 @@ const UVIndexChart: React.FC<any> = ({ setuvindexarr}) => {
             const single_uv_index = data.daily.uv_index_max[i];
             const check_uv_index = {
               uv: single_uv_index,
-              level: single_uv_index >= 1 && single_uv_index <= 3 ? "Low" : single_uv_index >= 4 && single_uv_index <= 9 ? "Moderate" : "High",
+              level: single_uv_index >= 1 && single_uv_index <= 3 ? "Low" : single_uv_index >= 4 && single_uv_index < 6 ? "Moderate" : "High",
             };
             check_uv_index.level === 'High' ? colors.push('#ec0000') : check_uv_index.level === 'Moderate' ? colors.push('#ecca00') : colors.push('#008A09');
 

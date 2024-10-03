@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React from 'react'
 import FloodChart from './FloodChart';
+import DroughtChart from './DroughtChart';
 // import FloodFetch from './FloodFetch';
 
 interface DisastersFetchProps {
@@ -71,7 +72,7 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({disaster}) => {
         </div>
 
          {/* drought chart   */}
-         
+         <DroughtChart />
       </div>
       )}
   </>
