@@ -28,8 +28,8 @@ const DiseaseSolution = ({ data }: DiseaseSolutionProps) => {
       {/* solution  */}
       <div>
 
-        <p>Copy this prompt & Ask to <Link href="/dashboard/help?ask=What to do if I have chilli antracnose,eggplant cercospora leaf spot,tomato antracnose,. Simplify and make the answer more direct. Also give me preventive measures." className="font-bold text-primary">
-          Help Center
+        <p><Link href="/dashboard/help?ask=What to do if I have chilli antracnose,eggplant cercospora leaf spot,tomato antracnose,. Simplify and make the answer more direct. Also give me preventive measures." className="font-bold text-primary">
+          Click here for recommendations
         </Link> </p>
         <div className='border border-slate-200 rounded-md p-4 mt-2'>
           What to do if I have {data?.map((item: DiseaseData, index) => (
