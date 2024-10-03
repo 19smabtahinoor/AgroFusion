@@ -10,7 +10,7 @@ import getQuery from "@/lib/functions/FetchQuery";
 
 export default async function Page() {
 
-    const { data: humidityData } = await getQuery('https://agro-fusion.vercel.app/api/humidity/');
+    const { data: humidityData } = await getQuery('http://localhost:3000/api/humidity/');
     const { data: waterLevel } = await getQuery('https://agro-fusion.vercel.app/api/water_level/');
 
     return (
@@ -25,7 +25,6 @@ export default async function Page() {
                     </div>
                     <div className="col-span-2 border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
                         <Temperature />
-                        {/* <TemperatureLineChart /> */}
                     </div>
                     <div className="col-span-3">
                         <div className="grid lg:grid-cols-2">
