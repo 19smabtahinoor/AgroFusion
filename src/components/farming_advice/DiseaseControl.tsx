@@ -1,6 +1,5 @@
 "use client"
 import ModuleTitle from '../ui/ModuleTitle';
-import { useState } from 'react';
 
 interface dData {
   id: number;
