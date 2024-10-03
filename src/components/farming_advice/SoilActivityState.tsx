@@ -1,5 +1,4 @@
 
-// import { useEffect, useState } from 'react';
 import getQuery from '@/lib/functions/FetchQuery';
 
 export default async function SoilActivityState() {
