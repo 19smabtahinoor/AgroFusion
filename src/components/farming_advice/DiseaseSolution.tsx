@@ -32,8 +32,8 @@ const DiseaseSolution = ({ data }: DiseaseSolutionProps) => {
               Help Center
             </Link> </p>
         <div className='border border-slate-200 rounded-md p-4 mt-2'>
-        What to do if I have {data?.map((item: DiseaseData) => (
-          <span className='font-bold'>{item?.disease},</span>
+        What to do if I have {data?.map((item: DiseaseData, index) => (
+          <span className='font-bold' key={index}>{item?.disease},</span>
         ))}. Simplify and make the answer more direct. Also give me preventive measures.
         </div>
 
