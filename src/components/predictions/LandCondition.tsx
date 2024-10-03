@@ -57,7 +57,6 @@ const LandCondition = () => {
       try {
         const data = await getData();
         setSoilData(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
