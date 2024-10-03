@@ -1,11 +1,15 @@
-import PestActivity from '@/components/farming_advice/DiseaseControl';
+import DiseaseControl from '@/components/farming_advice/DiseaseControl';
+import DiseaseSolution from '@/components/farming_advice/DiseaseSolution';
 import SoilActivity from '@/components/farming_advice/SoilActivity';
 import SoilActivitySolution from '@/components/farming_advice/SoilActivitySolution';
 import UVindexSituation from '@/components/farming_advice/UVindexSituation';
 import PageTitle from '@/components/ui/PageTitle';
+import getQuery from '@/lib/functions/FetchQuery';
 
 
-export default function page() {
+export default async function page() {
+  const { data: disease } = await getQuery('https://agro-fusion.vercel.app/api/disease/');
+
 
   return (
     <main className="lg:px-16">
@@ -18,10 +22,10 @@ export default function page() {
         {/* pest activity  */}
         <div className="grid grid-cols-1 lg:grid-cols-4">
           <div className="col-span-2 border-b border-slate-200 px-10 py-5">
-            <PestActivity />
+            <DiseaseControl  data={disease}/>
           </div>
           <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
-            {/* <PestActivitySolution /> */}
+            <DiseaseSolution />
           </div>
         </div>
 

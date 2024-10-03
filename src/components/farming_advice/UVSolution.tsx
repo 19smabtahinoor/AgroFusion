@@ -24,7 +24,8 @@ function UVSolution({ uvindexarr }:{uvindexarr:uvindextype[]}) {
       id: 1,
       state: 'UV_HIGH',
       solution: `
-      When UV levels go above 8, they can harm crops by damaging cells and slowing growth. Farmers can protect crops with these simple steps:
+      When UV levels go above 8, they can harm crops by damaging cells 
+      and slowing growth. Farmers can protect crops with these simple steps:
 **1.Shade Nets or Tunnels:** Use nets or UV-blocking greenhouses to reduce UV rays.
 
 **2.Mulching:** Cover soil with organic or reflective mulch to lower heat and UV exposure.
@@ -87,7 +88,7 @@ const filterUVindex = uvindexarr?.find((item) => item.level == "High");
                   </>
                 ) : (
                   <>
-                    <div className="text-sm text-justify bg-green-200 p-4 rounded-md">
+                    <div className="text-sm text-justify text-wrap bg-green-200 p-4 rounded-md">
                       <Markdown text={solution_Data[1]?.solution} />
                     </div>
                   </>

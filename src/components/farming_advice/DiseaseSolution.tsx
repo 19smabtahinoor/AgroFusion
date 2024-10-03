@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Markdown from '../help/markdown';
 import ModuleTitle from '../ui/ModuleTitle';
 
-const PestActivitySolution = () => {
+const DiseaseSolution = () => {
   const [state, setState] = useState('State1');
 
   const solution_Data = [
@@ -118,4 +118,4 @@ const PestActivitySolution = () => {
   );
 };
 
-export default PestActivitySolution;
+export default DiseaseSolution;

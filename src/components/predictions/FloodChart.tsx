@@ -72,7 +72,7 @@ const FloodChart = () => {
 
 
   return (
-    <div>
+    <div className='mt-5'>
       <Line
         data={data as ChartData<'line', number[], string>}//+
         options={options}
