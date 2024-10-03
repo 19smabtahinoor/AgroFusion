@@ -76,16 +76,16 @@ const LandCondition = () => {
     <div className="pl-4">
       <ModuleTitle title="Land Conditions" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-6">
         {data?.map((item) => {
           return (
             <>
               <div
                 key={item?.id}
-                className="bg-green-50 flex flex-col items-center justify-center rounded-lg p-4"
+                className="bg-green-50 flex flex-col h-36 items-center justify-center rounded-lg p-4"
               >
                 <p className="text-slate-600 text-sm ">{item?.title}</p>
-                <h1 className="text-4xl font-bold">{item?.value}</h1>
+                <h1 className="text-5xl font-bold text-center">{item?.value}</h1>
               </div>
             </>
           );
