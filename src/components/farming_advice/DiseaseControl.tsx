@@ -1,6 +1,5 @@
 import ModuleTitle from '../ui/ModuleTitle';
 import ViewReportBtn from '../ui/ViewReportBtn';
-import PestActivityLineChart from './PestActivityLineChart';
 
 const PestActivity = () => {
   return (
@@ -9,14 +8,14 @@ const PestActivity = () => {
         <div className="flex justify-between pb-3">
           <div>
             <div className="mb-3">
-              <ModuleTitle title="Pest Activity" />
+              <ModuleTitle title="Disease Control " />
             </div>
             <h1 className="text-lg">State: </h1>
           </div>
           <ViewReportBtn />
         </div>
 
-        <PestActivityLineChart />
+        {/* <PestActivityLineChart /> */}
       </div>
     </>
   );

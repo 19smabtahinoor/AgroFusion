@@ -38,6 +38,12 @@ export type AlertSchemaType = {
     description: string,
 };
 
+export type DiseaseSchemaType = {
+    disease: string,
+};
+
+
+
 export type Humidity = {
     _id: string,
     humidity: number,
@@ -72,6 +78,14 @@ export type Alert = {
     _id: string,
     alert: string,
     description: string,
+    createdAt: string,
+    updatedAt: string;
+};
+
+
+export type Disease = {
+    _id: string,
+    disease: string,
     createdAt: string,
     updatedAt: string;
 };

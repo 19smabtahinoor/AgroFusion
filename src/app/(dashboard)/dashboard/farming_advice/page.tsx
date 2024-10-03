@@ -1,5 +1,4 @@
-import PestActivity from '@/components/farming_advice/PestActivity';
-import PestActivitySolution from '@/components/farming_advice/PestActivitySolution';
+import PestActivity from '@/components/farming_advice/DiseaseControl';
 import SoilActivity from '@/components/farming_advice/SoilActivity';
 import SoilActivitySolution from '@/components/farming_advice/SoilActivitySolution';
 import UVindexSituation from '@/components/farming_advice/UVindexSituation';
@@ -22,7 +21,7 @@ export default function page() {
             <PestActivity />
           </div>
           <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
-            <PestActivitySolution />
+            {/* <PestActivitySolution /> */}
           </div>
         </div>
 
