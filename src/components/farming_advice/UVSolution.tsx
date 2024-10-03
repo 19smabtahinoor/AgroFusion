@@ -50,11 +50,11 @@ function UVSolution({ uvindexarr }:{uvindexarr:uvindextype[]}) {
       solution: `
 **1.Low UV levels (below 3 UV index)**: Minimal effect on crops, potentially leading to less robust growth or lower production of protective compounds.
 
-**2.Moderate UV levels (UV index of 3–6)**: Often beneficial as they can enhance crop hardiness, stress tolerance, and nutrient content without causing damage.
+**2.Moderate UV levels (UV index of 3–7.5)**: Often beneficial as they can enhance crop hardiness, stress tolerance, and nutrient content without causing damage.
 
-**3.High UV levels (UV index above 6):** May become detrimental, especially without adequate protective measures like shading or selective breeding for UV tolerance.
+**3.High UV levels (UV index above 7.5):** May become detrimental, especially without adequate protective measures like shading or selective breeding for UV tolerance.
 Optimal UV exposure depends on the crop species, geographic location, and existing adaptations to sunlight intensity.
-preventive measures against UV (If level is over 6)
+preventive measures against UV (If level is over 7.5)
 
 `,
     }

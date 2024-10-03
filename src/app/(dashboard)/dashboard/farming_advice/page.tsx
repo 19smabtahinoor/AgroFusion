@@ -25,7 +25,7 @@ export default async function page() {
             <DiseaseControl  data={disease}/>
           </div>
           <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
-            <DiseaseSolution />
+            <DiseaseSolution data={disease} />
           </div>
         </div>
 
