@@ -67,10 +67,15 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({disaster}) => {
         </div>
       ) : (
         <div className="mt-5">
-          <div className="w-full text-white bg-red-600 rounded-lg flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-semibold">{droughtProbablity}%</h1>
-          </div>
+        <div className="w-full p-4 border border-red-600 bg-red-100 rounded-lg flex flex-row items-center justify-around text-red-700">
+          <h1 className="text-sm">Chances of Droughts: <span className='font-bold'>{droughtProbablity}%</span></h1>
+          <p className="text-sm">Risk Type: <span className='font-bold'>High</span></p>
+         
         </div>
+
+         {/* drought chart   */}
+         
+      </div>
       )}
   </>
   )

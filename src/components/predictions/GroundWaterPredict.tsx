@@ -46,7 +46,7 @@ const GroundWaterPredict = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center space-x-3">
       <div className="border-r border-slate-200 py-16 px-10">
-        <ModuleTitle title="Groud-Water" />
+        <ModuleTitle title="Ground-Water" />
       </div>
 
       {/* groundwater prediction */}

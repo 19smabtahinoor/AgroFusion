@@ -27,7 +27,6 @@ export default function page() {
         <div className="grid grid-cols-1 lg:grid-cols-4">
           <div className="col-span-2 border-b border-slate-200 px-10 py-5">
             <LandTemp />
-            <LandTemperatureLineChart />
           </div>
           <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 ">
             <LandCondition />
