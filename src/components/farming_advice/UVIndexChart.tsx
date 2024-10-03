@@ -1,4 +1,5 @@
 'use client';
+import { latitude, longitude } from '@/datacenter/LocationTrack';
 import axios from 'axios';
 import {
   CategoryScale,
@@ -10,12 +11,11 @@ import {
 import Chart from 'chart.js/auto';
 import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { longitude, latitude } from '@/datacenter/LocationTrack';
 
 Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const UVIndexChart: React.FC<any> = ({ setuvindexarr}) => {
+const UVIndexChart: React.FC<any> = ({ setuvindexarr }) => {
 
 
   interface UVData {
@@ -24,13 +24,8 @@ const UVIndexChart: React.FC<any> = ({ setuvindexarr}) => {
       time: string[];
     };
   }
-  
+
   const [UVdata, setUVdata] = useState<UVData | null>(null);
-
-
-  //1-3 -=> low 
-  // 3-7 => moderate
-  // 7-11+ => high
   const [uvindexcolor, setUvindexcolor] = useState<string[]>([]);
 
   useEffect(() => {
@@ -38,10 +33,11 @@ const UVIndexChart: React.FC<any> = ({ setuvindexarr}) => {
       .then(response => {
         const data = response.data;
         setUVdata(data);
-        console.log(data)
+        console.log(data);
 
         const colors: string[] = [];
         const uvArr: object[] = [];
+        console.log("🚀 ~ useEffect ~ uvArr:", uvArr);
 
         if (data && data.daily && data.daily.uv_index_max) {
           for (let i = 0; i < data.daily.uv_index_max.length; i++) {
@@ -62,17 +58,17 @@ const UVIndexChart: React.FC<any> = ({ setuvindexarr}) => {
         console.log(error);
       });
   }, [setuvindexarr]);
-  
+
 
   const data: ChartData<'line' | 'bar', number[], string> = {
     labels: UVdata?.daily?.time || [],
     datasets: [
       {
-        type:"bar",
+        type: "bar",
         label: "UV Index",
         data: UVdata?.daily?.uv_index_max || [],
-        backgroundColor:uvindexcolor
-      } 
+        backgroundColor: uvindexcolor
+      }
     ],
   };
 

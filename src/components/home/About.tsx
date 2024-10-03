@@ -5,7 +5,6 @@ export default function About() {
     return (
         <div className="flex flex-col lg:flex-row mt-10 lg:mt-0 lg:w-5/6 mx-auto">
             <div className="lg:relative lg:border-r lg:border-slate-300 flex flex-col gap-y-10">
-                <div className="hidden lg:block w-[200px] h-[800px] bg-primary absolute filter opacity-15 -top-[400px] rotate-45 -left-[200px] blur-3xl"></div>
                 <div className="flex flex-col lg:flex-row items-center z-10">
                     <Image src={icons.agriculturalRobot} className="w-full lg:w-[200px] lg:mr-5" alt="robot" />
                     <div>

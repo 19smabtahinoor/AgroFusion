@@ -41,7 +41,7 @@ export default function Temperature() {
         <ModuleTitle title="Temperature" />
       </div>
       {/* temp  */}
-      <div className="flex flex-col items-center justify-center py-2 border border-slate-300 rounded-xl h-80 p-6 my-4">
+      <div className="flex flex-col items-center justify-center py-2 border border-slate-300 rounded-xl h-[23rem] p-6 my-4">
         <div className="flex flex-row items-center space-x-2">
           {/* icon  */}
           <Image src={`https://openweathermap.org/img/wn/${infos?.icon}@2x.png`} width={30} height={20} alt="Weather Type" className='w-16 h-24 object-cover' />

@@ -6,11 +6,12 @@ import LetterAvatar from 'react-avatar';
 import { useChat } from 'ai/react';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Markdown from './markdown';
 
 export default function HelpChat({ ask }: { ask: string; }) {
   const { messages, input, handleInputChange, handleSubmit, setInput } = useChat();
+  const [isTyping, setIsTyping] = useState(false);
   const { data } = useSession();
   const { user } = data || {};
 
@@ -18,15 +19,15 @@ export default function HelpChat({ ask }: { ask: string; }) {
     if (ask.length > 1) {
       setInput(ask);
     }
-  }, [ask, setInput]);
+  }, [ask.length]);
 
   useEffect(() => {
-    if (ask.length > 1) {
+    if (ask.length > 1 && !isTyping) {
       setTimeout(() => {
         handleSubmit();
-      }, 500);
+      }, 1000);
     }
-  }, [ask.length, handleSubmit]);
+  }, [ask.length, handleSubmit, isTyping]);
 
 
 
@@ -90,7 +91,7 @@ export default function HelpChat({ ask }: { ask: string; }) {
           <input
             value={input}
             placeholder="Ask for help and then Press Enter"
-            onChange={handleInputChange}
+            onChange={(e) => { handleInputChange(e); setIsTyping(true); }}
             className="border mx-auto w-[1450px] px-4 py-3 border-slate-400 rounded-md outline outline-secondary"
           />
         </div>

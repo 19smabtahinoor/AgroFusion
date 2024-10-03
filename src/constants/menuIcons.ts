@@ -1,4 +1,5 @@
 import brandLogo from '@/icons/BrandLogo.svg';
+import farmer_2 from '@/icons/Farmer_2.svg';
 import field from '@/icons/Field.svg';
 import forage from '@/icons/Forage.svg';
 import info from '@/icons/Info Square.svg';
@@ -43,7 +44,8 @@ const icons = {
     brandLogo2,
     smart_firming,
     subtract,
-    headerFrame
+    headerFrame,
+    farmer_2
 };
 
 export default icons;
