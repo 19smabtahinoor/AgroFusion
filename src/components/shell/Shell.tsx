@@ -94,9 +94,9 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 	);
 
 	return (
-		<div className=" flex flex-col">
+		<div className=" flex flex-col overflow-x-hidden">
 			<nav className="flex gap-x-2 items-center justify-between">
-				<div className="w-[300px] lg:bg-[#F3FFF6]  px-5 py-3  ">
+				<div className="w-[300px]   px-5 py-3  ">
 					<div
 						className="block md:hidden cursor-pointer"
 						onClick={() => setMobileMenu((open) => !open)}
@@ -119,11 +119,11 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 						<div>{content}</div>
 						<h1>{user?.name}</h1>
 					</div>
-					<div>
+					<div className='hidden lg:flex'>
 						<TopBarLocation />
 					</div>
 					<Link href={'/dashboard/alerts'}>
-						<div className='p-2 bg-primary rounded-full text-white relative'>
+						<div className='p-2 bg-primary rounded-full text-white relative hidden md:flex lg:flex'>
 							<span className="flex h-3 w-3 absolute left-6 -top-1">
 								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
 								<span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
@@ -134,10 +134,10 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 				</div>
 			</nav>
 			<hr className="border-slate-200" />
-			<div className="flex overflow-hidden relative h-full">
+			<div className="flex overflow-hidden h-full">
 				<aside
 					className={cn(
-						'w-[300px] h-full bg-[#F3FFF6] border-slate-200 p-5 absolute md:static flex flex-col gap-y-2 transition-all duration-300 ease-in-out overflow-y-auto',
+						'w-[300px] h-full  p-5 absolute md:static flex flex-col gap-y-2 transition-all duration-300 ease-in-out overflow-y-auto',
 						{
 							'-left-[300px]': !mobileMenu,
 							'-left-[0px] w-full md:w-[300px]': mobileMenu,
@@ -150,7 +150,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 					</div>
 				</aside>
 
-				<main className="flex-1 p-5 overflow-y-auto">{children}</main>
+				<main className="flex-1 p-5 overflow-y-auto border-l border-slate-200">{children}</main>
 			</div>
 		</div>
 	);
