@@ -7,7 +7,6 @@ import FieldOverviewReport from '@/components/report/FieldOverviewReport';
 import FarmingAdviceReport from '@/components/report/FarmingAdviceReport';
 import PredictionsReport from '@/components/report/PredictionsReport';
 import dynamic from 'next/dynamic';
-// import Languages from '@/components/report/Languages';
 const Languages = dynamic(() => import('@/components/report/Languages'), { ssr: false });
 
 
@@ -75,8 +74,9 @@ export default async function page({searchParams} : {searchParams:{language:stri
     } 
     
 
+
   return (
-    <div className='px-16 pb-16'>
+    <div className='px-16 pb-16' >
         
       <Languages />
     
