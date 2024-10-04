@@ -81,8 +81,8 @@ export default function SoilHealthPieChart() {
       };
 
     return (
-        <div className='flex justify-center'>
-            <div className=''>
+        <div className='m-6'>
+            <div className='w-full'>
                 <Bar data={data} options={options}/>
             </div>
         </div>

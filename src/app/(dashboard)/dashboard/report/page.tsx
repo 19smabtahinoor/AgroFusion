@@ -82,17 +82,17 @@ export default async function page({searchParams} : {searchParams:{language:stri
     
 
     <div className='border-slate-200 border-b pb-4'>
-        <h3 className='text-lg font-semibold py-2'>Field Overview Report</h3>
+        <h3 className='text-lg font-semibold py-2 text-primary'>Field Overview Report</h3>
       <FieldOverviewReport data={{humidity : promptData.humidity,ph : promptData.pH,soil_health : promptData.soil_health,water_level : promptData.water_level,language}} />
     </div>
 
     <div className='border-slate-200 border-b pb-4'>
-        <h3 className='text-lg font-semibold py-2'>Farming Advice Report</h3>
+        <h3 className='text-lg font-semibold py-2 text-primary'>Farming Advice Report</h3>
         <FarmingAdviceReport data={{ disease, soilType,uvIndex:promptData?.uvIndex,language}}/>
     </div>
 
     <div>
-    <h3 className='text-lg font-semibold py-2'>Predictions Report</h3>
+    <h3 className='text-lg font-semibold py-2 text-primary'>Predictions Report</h3>
     <PredictionsReport data={{ groundwaterdecision:promptData?.groundwaterdecision,rain_type:promptData?.rain_type,soilDryness:promptData?.soilDryness,waterPurity:promptData?.waterPurity ,language }}/>
     </div>
        

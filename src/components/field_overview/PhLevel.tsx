@@ -56,10 +56,9 @@ export default function PhLevel() {
 
   return (
     <div className="py-5">
+      <div className="flex flex-col justify-center">
       <ModuleTitle title="pH Level" />
-      <h1 className="text-slate-500">Lorem ipsum dolor sit amet.</h1>
-      <div className="flex justify-center">
-        <div className={`flex flex-col justify-center items-center w-[300px] h-[300px] text-white rounded-full mt-8`} style={{ backgroundColor: pHColor }}>
+        <div className={`flex flex-col justify-center items-center w-full h-[200px] text-white rounded-xl mt-8`} style={{ backgroundColor: pHColor }}>
           <h1 className="text-8xl font-semibold">{soilData?.pH}</h1>
           <h1>{soilData?.pH >= 0 && soilData?.pH <= 6 ? "Acidic" : soilData?.pH >= 8 && soilData?.pH <= 14 ? "Alkaline" : "Neutral"}</h1>
         </div>
