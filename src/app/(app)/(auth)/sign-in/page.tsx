@@ -55,16 +55,16 @@ export default function Page() {
 
 
     return (
-        <section className="container h-[100vh] flex justify-center items-center">
-            <div className="grid grid-cols-3 relative">
+        <section className="container h-[100vh] flex lg:flex-row flex-col justify-center items-center">
+            <div className="grid lg:grid-cols-3 grid-cols-1 relative">
                 <div className="col-span-1 flex flex-col items-center relative ">
                     <Image src={icons.brandLogo2} alt="brand logo" />
                     <Image src={icons.smart_firming} alt="brand logo" className="z-20" />
                     <div className="bg-primary h-[50px] w-full absolute bottom-0 z-10"></div>
-                    <div className="absolute w-[80px] h-full -right-10 z-30 rounded-full bg-white" style={{ boxShadow: '-10px -0px 22px -13px #aaa;' }}></div>
+                    <div className="absolute w-[80px] hidden lg:block h-full -right-10 z-30 rounded-full bg-white" style={{ boxShadow: '-10px -0px 22px -13px #aaa;' }}></div>
                 </div>
                 <div className="col-span-2 flex items-center rounded-3xl ">
-                    <div className="w-3/6 mx-auto">
+                    <div className="w-full lg:w-3/6 mx-auto"> 
                         <div >
                             <h1 className="text-3xl font-bold mb-8 pl-2">Sign In</h1>
                             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-2">

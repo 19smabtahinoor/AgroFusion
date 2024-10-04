@@ -7,7 +7,6 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { latitude, longitude } from '../../datacenter/LocationTrack';
-import ModuleTitle from '../ui/ModuleTitle';
 
 export default function Temperature() {
   const [data, setData] = useState<>([]);

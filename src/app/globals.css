@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    transform-origin: top left;
+  }
+  
+  @media (max-width: 1200px) {
+    html {
+      transform: scale(0.9);
+      width: 111.11%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    html {
+      transform: scale(0.8);
+      width: 125%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      transform: scale(0.7);
+      width: 142.86%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    html {
+      transform: scale(0.6);
+      width: 166.67%;
+    }
+  }
+  

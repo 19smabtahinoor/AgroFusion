@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '../ui/button'
 import { useRouter, useSearchParams } from 'next/navigation'
-import ModuleTitle from '../ui/ModuleTitle'
 import { cn } from '@/lib/utils'
 import PageTitle from '../ui/PageTitle'
 

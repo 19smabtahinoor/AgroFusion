@@ -19,10 +19,10 @@ export default async function Page() {
 
             <div className="flex flex-col space-y-2 py-8">
                 <div className="grid grid-cols-1 lg:grid-cols-8">
-                    <div className="col-span-2 border-b border-slate-200 px-10 py-5">
+                    <div className="col-span-1 lg:col-span-2 border-b border-slate-200 px-10 py-5">
                         <PhLevel />
                     </div>
-                    <div className="col-span-2 border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
+                    <div className="col-span-1 lg:col-span-2 border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
                         <Temperature />
                     </div>
                     <div className="col-span-4">
