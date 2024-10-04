@@ -37,6 +37,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 		{ name: 'Predictions', to: '/dashboard/predictions', icon: svg.trot_cards },
 		{ name: 'Alerts', to: '/dashboard/alerts', icon: svg.siren },
 		{ name: 'Help', to: '/dashboard/help', icon: svg.info },
+		{ name: 'Advisors', to: '/dashboard/advisors', icon: svg.info },
 		{ name: 'Report', to: '/dashboard/report?language=Bangla', icon: svg.report },
 	];
 
