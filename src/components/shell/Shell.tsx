@@ -38,7 +38,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 		{ name: 'Alerts', to: '/dashboard/alerts', icon: svg.siren },
 		{ name: 'Help', to: '/dashboard/help', icon: svg.info },
 		{ name: 'Advisors', to: '/dashboard/advisors', icon: svg.info },
-		{ name: 'Report', to: '/dashboard/report?language=Bangla', icon: svg.report },
+		{ name: 'Report', to: '/dashboard/report?language=English', icon: svg.report },
 	];
 
 	const menus = links.map(({ name, to, icon: Icon }) => {
