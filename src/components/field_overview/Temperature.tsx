@@ -51,6 +51,7 @@ export default function Temperature() {
           <p className="text-lg text-slate-500">Feels Like {celsiusFeelsLike}°C</p>
           <p className="text-lg font-semibold text-red-600">{infos?.main}</p>
         </div>
+        <div>Clouds Cover: {data?.clouds?.all}%</div>
       </div>
     </div>
   );

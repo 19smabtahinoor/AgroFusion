@@ -21,6 +21,7 @@ import sumaiya from '@/icons/sumaiya.png';
 import talha from '@/icons/talha.png';
 import vector from '@/icons/vector.svg';
 import yeasar from '@/icons/yeasar.png';
+import report from '@/icons/report.png';
 
 const icons = {
     field,
@@ -45,7 +46,8 @@ const icons = {
     smart_firming,
     subtract,
     headerFrame,
-    farmer_2
+    farmer_2,
+    report
 };
 
 export default icons;

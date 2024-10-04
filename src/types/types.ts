@@ -89,3 +89,17 @@ export type Disease = {
     createdAt: string,
     updatedAt: string;
 };
+
+export type apiData = {
+    humidity : number,
+    soil_health : string,
+    water_level : number,
+    pH : number,
+    uvIndex : number,
+    disease: string[],
+    soilType : string,
+    rain_type: string,
+    waterPurity:number,
+    soilDryness:number,
+    groundwaterdecision:string,
+}
