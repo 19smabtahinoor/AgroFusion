@@ -94,7 +94,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 	);
 
 	return (
-		<div className="h-screen flex flex-col">
+		<div className=" flex flex-col">
 			<nav className="flex gap-x-2 items-center justify-between">
 				<div className="w-[300px] lg:bg-[#F3FFF6]  px-5 py-3  ">
 					<div
