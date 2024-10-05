@@ -7,7 +7,7 @@ https://agro-fusion.vercel.app/
 https://github.com/19smabtahinoor/AgroFusion_Hardware 
 
 
-```
+```markdown
 # AgroFusion
 
 Challenge Name :This is the solution of Leveraging Earth Observation Data for Informed Agricultural Decision-Making implemented by Team AgroFusion
