@@ -1,14 +1,12 @@
-# This is the solution of Leveraging Earth Observation Data for Informed Agricultural Decision-Making implemented by Team AgroFusion
+# AgroFusion
 
-# Live Link  
+### Live Link  
 https://agro-fusion.vercel.app/
 
-# Hardware Code's Repository : 
+### Hardware Code's Repository : 
 https://github.com/19smabtahinoor/AgroFusion_Hardware 
 
 
-```markdown
-# AgroFusion
 
 Challenge Name :This is the solution of Leveraging Earth Observation Data for Informed Agricultural Decision-Making implemented by Team AgroFusion
 
@@ -60,45 +58,8 @@ AgroFusion provides continuous, real-time data from the field, allowing users to
 ### Realtime Data from Hardware Sensors
 - Real-time data is captured via IoT sensors placed in the field, including humidity, temperature, water level, pH level, and soil health data. This data is sent to the server, processed, and displayed on the AgroFusion dashboard.
 
-## Installation
-To set up the project locally, follow these steps:
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/19smabtahinoor/AgroFusion.git
-   cd AgroFusion
-   ```
-
-2. **Install Backend Dependencies:**
-   ```bash
-   cd server
-   npm install
-   ```
-
-3. **Install Frontend Dependencies:**
-   ```bash
-   cd client
-   npm install
-   ```
-
-4. **Run the Application:**
-   You can start both the frontend and backend servers by running the following:
-   ```bash
-   # For Backend
-   cd server
-   npm start
-
-   # For Frontend
-   cd client
-   npm start
-   ```
-
-5. **Environment Variables:**
-   Ensure to set up necessary environment variables in `.env` files for MongoDB connection, Firebase configuration, and other sensitive keys.
 
 ## Usage
-Once the application is running, navigate to `http://localhost:3000` to access the AgroFusion dashboard. The dashboard will display real-time data from your sensors and provide actionable insights into your farm's environmental conditions.
-
 To use the AI Disease Detection feature:
 1. Navigate to the **Disease Detection** section.
 2. Upload a photo of your crop's leaves.
@@ -110,5 +71,5 @@ To use the AI Disease Detection feature:
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+
 
