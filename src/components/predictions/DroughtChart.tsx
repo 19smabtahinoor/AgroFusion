@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import {longitude, latitude} from '../../datacenter/LocationTrack';
@@ -15,20 +16,24 @@ import { Line } from 'react-chartjs-2';
 Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 
 
-interface FloodData {
-  daily: { time: string[]; river_discharge: number[], temperature_2m_max: number[], relative_humidity_2m_max: number[] };
+interface drData {
+  daily: { time: string[], temperature_2m_max: number[], relative_humidity_2m_max: number[] };
 }
+
+
 
 const DroughtChart = () => {
 
-  const [DroughtData, setDroughtData] = useState<FloodData | null>(null);
+  const [DroughtData, setDroughtData] = useState<drData>({
+    daily: { time: [], temperature_2m_max: [], relative_humidity_2m_max: [] }
+  });
 
 
   useEffect(() => {
     axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,relative_humidity_2m_max
 `)
       .then(response => {
-        setDroughtData(response.data);
+        setDroughtData(response?.data);
       })
       .catch(error => {
         console.log(error);

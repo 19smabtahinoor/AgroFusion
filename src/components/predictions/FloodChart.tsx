@@ -19,7 +19,7 @@ interface FloodData {
   daily: { time: string[]; river_discharge: number[] };
 }
 
-const FloodChart = () => {
+const FloodChart = ({ setRiverDischargeFloor }: { setRiverDischargeFloor: (discharge: number[]) => void }) => {
 
   const [floodData, setFloodData] = useState<FloodData | null>(null);
 
@@ -29,13 +29,14 @@ const FloodChart = () => {
 `)
       .then(response => {
         setFloodData(response.data);
+        setRiverDischargeFloor(response.data?.daily?.river_discharge);
         console.log(response.data);
       })
       .catch(error => {
         console.log(error);
       })
 
-    },[])
+    },[setRiverDischargeFloor])
 
     // console.log(floodData)
   const data: ChartData<'line' | 'bar', number[], string> = {

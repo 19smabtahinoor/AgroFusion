@@ -60,7 +60,7 @@ export default async function page({searchParams} : {searchParams:{language:stri
 
     const promptData : apiData = {
         pH: pH,
-        humidity: humidityData[humidityData.length - 1].humidity,
+        humidity: humidityData[humidityData.length - 1]?.humidity,
         water_level:water_level,
         disease,
         soil_health : currentHealthComment,
