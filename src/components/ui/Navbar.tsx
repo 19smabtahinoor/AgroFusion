@@ -14,8 +14,8 @@ export default function Navbar() {
 
     const links = [
         { name: 'Home', to: '/' },
-        { name: 'About', to: '/about' },
-        { name: 'Contact', to: '/contact' },
+        // { name: 'About', to: '/about' },
+        // { name: 'Contact', to: '/contact' },
     ];
 
     useEffect(() => {
