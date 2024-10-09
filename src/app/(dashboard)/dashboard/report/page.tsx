@@ -14,12 +14,11 @@ export default async function page({searchParams} : {searchParams:{language:stri
 
     
     const language = searchParams.language;
-    console.log(language);
     
     const { data: humidityData } = await getQuery('https://agro-fusion.vercel.app/api/humidity/');
     const { data: disease } = await getQuery('https://agro-fusion.vercel.app/api/disease/');
     const uvindex = await getQuery(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=uv_index_max&timezone=auto`);
-    const x =await getQuery("https://api-test.openepi.io/soil/type?lon=87&lat=23.8221")
+    const x =await getQuery("https://api.openepi.io/soil/type?lon=87&lat=23.8221")
     const weatherPredictionData =await getQuery(`https://api.open-meteo.com/v1/forecast?latitude=23.8221&longitude=90.4274&daily=precipitation_sum,rain_sum,precipitation_probability_max&timezone=auto&current=precipitation,rain`)
     const soilType = x?.properties?.most_probable_soil_type; 
     const sensorData = await getData();
