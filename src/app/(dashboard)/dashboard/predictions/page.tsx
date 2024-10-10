@@ -13,7 +13,7 @@ export default function page() {
       <div className="flex flex-col space-y-2 py-8">
         {/* 1st portion  */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-4">
+        <div className="grid grid-cols-1 xl:grid-cols-4">
           <div className="col-span-2 border-b border-slate-200 md:px-10 md:py-5">
             <WeatherCondition />
           </div>
@@ -23,7 +23,7 @@ export default function page() {
         </div>
         {/* 2nd Portion  */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-4">
+        <div className="grid grid-cols-1 xl:grid-cols-4">
           <div className="col-span-2 border-b border-slate-200 md:px-10 md:py-5">
             <LandTemp />
           </div>

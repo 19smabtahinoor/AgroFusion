@@ -20,21 +20,21 @@ export default async function page() {
         <UVindexSituation />
 
         {/* pest activity  */}
-        <div className="grid grid-cols-1 lg:grid-cols-4">
-          <div className="col-span-2 border-b border-slate-200 px-10 py-5">
-            <DiseaseControl  data={disease}/>
+        <div className="grid grid-cols-1 xl:grid-cols-4">
+          <div className="col-span-2 border-b border-slate-200 lg:px-10 lg:py-5">
+            <DiseaseControl data={disease} />
           </div>
-          <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 flex flex-col gap-y-10">
+          <div className="col-span-2 border-l border-b border-slate-200 lg:px-10 lg:py-5 flex flex-col gap-y-10">
             <DiseaseSolution data={disease} />
           </div>
         </div>
 
         {/* SOIL  */}
-        <div className="grid grid-cols-1 lg:grid-cols-4">
-          <div className="col-span-2 px-10 py-5">
+        <div className="grid grid-cols-1 xl:grid-cols-4">
+          <div className="col-span-2 lg:px-10 lg:py-5">
             <SoilActivity />
           </div>
-          <div className="col-span-2 border-l  border-slate-200 px-10 py-5 flex flex-col gap-y-10">
+          <div className="col-span-2 border-l  border-slate-200 lg:px-10 lg:py-5 flex flex-col gap-y-10">
             <SoilActivitySolution />
           </div>
         </div>

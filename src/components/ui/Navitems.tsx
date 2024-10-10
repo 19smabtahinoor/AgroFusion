@@ -7,10 +7,12 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from 'react';
 import LetterAvatar from 'react-avatar';
 import { PiSignOut } from 'react-icons/pi';
 import { Button } from "./button";
@@ -20,11 +22,39 @@ type Link = {
     to: string;
 };
 
+
+
+
 export default function NavItems({ links }: { links: Link[]; }) {
 
-    const { data } = useSession();
+    const { data, status } = useSession();
     const { user } = data || {};
+    const { toast } = useToast();
 
+    const options: Intl.DateTimeFormatOptions = {
+        weekday: 'long', // Friday
+        year: 'numeric', // 2023
+        month: 'long', // February
+        day: 'numeric', // 10
+        hour: 'numeric', // 5
+        minute: 'numeric', // 57
+        hour12: true, // PM format
+    };
+
+    const event = new Date();
+    const day = event.toLocaleDateString('en-US', options);
+
+    useEffect(() => {
+        if (status !== 'loading' && !user?.email) {
+            setTimeout(() => {
+                toast({
+                    title: "Sign-In with the default credentials to see the dashboard",
+                    description: day,
+                    className: "border-slate-200 bg-primary text-white"
+                });
+            }, 1000);
+        }
+    }, [day, status, toast, user?.email]);
 
     const items = links.map(({ name, to }) => {
         // eslint-disable-next-line react-hooks/rules-of-hooks

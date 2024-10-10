@@ -18,7 +18,7 @@ export default async function Page() {
             <PageTitle title="Field Overview" />
 
             <div className="flex flex-col space-y-2 py-8">
-                <div className="grid grid-cols-1 lg:grid-cols-5">
+                <div className="grid grid-cols-1 xl:grid-cols-5">
                     <div className="col-span-3 border-b border-slate-200 px-10 py-5">
                         <Humidity />
                         <HumidityBubbleChart data={humidityData} />
@@ -27,7 +27,7 @@ export default async function Page() {
                         <Temperature />
                     </div>
                     <div className="col-span-3">
-                        <div className="grid lg:grid-cols-2">
+                        <div className="grid xl:grid-cols-2">
                             <div className="md:px-5">
                                 <SoilHealth />
                             </div>

@@ -1,6 +1,3 @@
-// import icons from "@/constants/menuIcons";
-// import Image from "next/image";
-
 import icons from "@/constants/menuIcons";
 import Image from "next/image";
 

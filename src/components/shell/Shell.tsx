@@ -125,7 +125,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 				</div>
 			</nav>
 			<div className="flex overflow-hidden relative h-full">
-				<aside className={cn("w-[240px] lg:w-[300px] h-full border-r bg-white border-slate-200 p-5 absolute md:static flex flex-col gap-y-2 transition-all duration-300 ease-in-out overflow-y-auto", { "-left-[300px]": !mobileMenu, "-left-[0px] w-full md:w-[300px]": mobileMenu })}>{menus}</aside>
+				<aside className={cn("w-[300px] h-full border-r bg-white border-slate-200 p-5 absolute md:static flex flex-col gap-y-2 transition-all duration-300 ease-in-out overflow-y-auto", { "-left-[300px]": !mobileMenu, "-left-[0px] w-full md:w-[300px]": mobileMenu })}>{menus}</aside>
 
 				<main className="flex-1 p-5 overflow-y-auto">{children}</main>
 			</div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from 'react';
 import ModuleTitle from '../ui/ModuleTitle';
@@ -13,11 +13,11 @@ interface uvindextype {
 const UVindexSituation = () => {
   const [uvindexarr, setuvindexarr] = useState<uvindextype[]>([]);
 
-  return(
+  return (
     (
       <>
-    
-        <div className="grid grid-cols-1 lg:grid-cols-4">
+
+        <div className="grid grid-cols-1 xl:grid-cols-4">
           <div className="col-span-2 border-b border-slate-200 px-10 py-5">
             <div>
               <div className="flex justify-between pb-3">
@@ -34,12 +34,12 @@ const UVindexSituation = () => {
             <UVSolution uvindexarr={uvindexarr} />
           </div>
         </div>
-    
-    
-    
+
+
+
       </>
     )
-  )
+  );
 };
 
 export default UVindexSituation;
