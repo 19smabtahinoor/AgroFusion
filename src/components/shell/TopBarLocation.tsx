@@ -5,6 +5,7 @@ import { latitude, longitude } from '../../datacenter/LocationTrack';
 const TopBarLocation = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [location, setLocation] = useState<any>({});
+  const [current, setCurrent] = useState<any>({});
 
   useEffect(() => {
     fetch(
@@ -13,18 +14,28 @@ const TopBarLocation = () => {
       .then((response) => response.json())
       .then((result) => {
         setLocation(result?.features[0]?.properties);
+        setCurrent(result?.query);
       })
       .catch((error) => console.log('error', error));
-  }, []);
+  }, [longitude, latitude]);
 
   console.log(location);
+  console.log(current);
 
   return (
     <div className="border border-slate-200 px-2 py-3 rounded-full flex flex-row items-center space-x-2">
       <FaLocationDot className="text-primary text-lg" />
-      <h1 className="text-xs">
-        {location?.suburb},{location?.city},{location?.country}
-      </h1>
+      {current?.lat == 0 || current?.lon == 0 ? (
+        <>
+          <h1 className="text-xs">Location detecting...</h1>
+        </>
+      ) : (
+        <>
+          <h1 className="text-xs">
+            {location?.suburb},{location?.city},{location?.country}
+          </h1>
+        </>
+      )}
     </div>
   );
 };
