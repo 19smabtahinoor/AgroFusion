@@ -22,7 +22,7 @@ export default function About() {
             </div>
             <div className="flex flex-col justify-center items-center">
                 <h1 className="font-bold text-3xl">Our Mission</h1>
-                <p className="w-4/6 mx-auto text-justify">is to help farmers protect crops, optimize yields, and ensure <span className="text-primary">sustainable farming</span> using cutting-edge sensors and NASA’s datasets</p>
+                <p className="w-5/6 mx-auto text-justify">is to help farmers protect crops, optimize yields, and ensure <span className="text-primary">sustainable farming</span> using cutting-edge sensors and NASA’s datasets</p>
             </div>
         </div>
     );

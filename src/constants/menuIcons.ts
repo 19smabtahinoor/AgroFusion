@@ -12,6 +12,8 @@ import abrahi from '@/icons/abtahi.png';
 import advisors from '@/icons/advisors.png';
 import agriculturalRobot from '@/icons/agricultural-robot.svg';
 import brandLogo2 from '@/icons/brand_logo2.svg';
+import diagram from '@/icons/diagram.png';
+import diagram_mobile from '@/icons/diagram_mobile.png';
 import farhan from '@/icons/farhan.png';
 import hardware from '@/icons/hardware.svg';
 import headerFrame from '@/icons/headerFrame.svg';
@@ -50,6 +52,8 @@ const icons = {
   headerFrame,
   farmer_2,
   advisors,
+  diagram,
+  diagram_mobile
 };
 
 export default icons;

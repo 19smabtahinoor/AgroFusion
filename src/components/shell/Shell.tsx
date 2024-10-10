@@ -20,7 +20,7 @@ import { HiMenuAlt2 } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
 import { PiSignOut } from 'react-icons/pi';
 import TopBarLocation from './TopBarLocation';
-export default function Sidebar({ children }: { children: React.ReactNode }) {
+export default function Sidebar({ children }: { children: React.ReactNode; }) {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const links = [

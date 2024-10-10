@@ -67,8 +67,8 @@ export default function PhLevel() {
             {soilData?.pH >= 0 && soilData?.pH <= 6
               ? 'Acidic'
               : soilData?.pH >= 8 && soilData?.pH <= 14
-              ? 'Alkaline'
-              : 'Neutral'}
+                ? 'Alkaline'
+                : 'Neutral'}
           </h1>
         </div>
       </div>
