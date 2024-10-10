@@ -1,31 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import axios from 'axios';
-import React, { useState } from 'react';
-// import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { latitude, longitude } from '../../datacenter/LocationTrack';
 import DroughtChart from './DroughtChart';
 import FloodChart from './FloodChart';
-// import FloodFetch from './FloodFetch';
-// import { latitude, longitude } from '../../datacenter/LocationTrack';
 
 interface DisastersFetchProps {
   disaster: string;
 }
 
-// interface drData {
-//   daily: {
-//     time: string[];
-//     temperature_2m_max: number[];
-//     relative_humidity_2m_max: number[];
-//   };
-// }
+interface drData {
+  daily: {
+    time: string[];
+    temperature_2m_max: number[];
+    relative_humidity_2m_max: number[];
+  };
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
   const [riverDischargeFlood, setRiverDischargeFloor] = useState<number[]>([]);
-  // const [DroughtData, setDroughtData] = useState<drData>({
-  //   daily: { time: [], temperature_2m_max: [], relative_humidity_2m_max: [] },
-  // });
+  const [DroughtData, setDroughtData] = useState<drData>({
+    daily: { time: [], temperature_2m_max: [], relative_humidity_2m_max: [] },
+  });
 
   const maxRiverDischarge = Math.max(...riverDischargeFlood);
   //risk changes create
@@ -68,29 +66,26 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
 
   //drought =======================================
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         `https://climate-api.open-meteo.com/v1/climate?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,relative_humidity_2m_max
-  // `
-  //       )
-  //       .then((response) => {
-  //         setDroughtData(response?.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }, []);
+  useEffect(() => {
+    axios
+      .get(
+        `https://climate-api.open-meteo.com/v1/climate?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,relative_humidity_2m_max
+  `
+      )
+      .then((response) => {
+        setDroughtData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-  // const maxRelativeHumidity = DroughtData
-  //   ? Math.max(...DroughtData?.daily?.relative_humidity_2m_max)
-  //   : 0;
-  // const maxTemp = DroughtData
-  //   ? Math.max(...DroughtData?.daily?.temperature_2m_max)
-  //   : 0;
-
-  const maxTemp = 35; // in Celsius
-  const maxRelativeHumidity = 30; // in percentage
+  const maxRelativeHumidity = DroughtData
+    ? Math.max(...DroughtData?.daily?.relative_humidity_2m_max)
+    : 0;
+  const maxTemp = DroughtData
+    ? Math.max(...DroughtData?.daily?.temperature_2m_max)
+    : 0;
 
   function calculateDroughtChance(
     maxTemp: number,
@@ -111,7 +106,7 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
     let droughtChance = (tempFactor * 0.7 + humidityFactor * 0.3) * 100;
 
     // Ensure the chance is between 0 and 100%
-    droughtChance = Math.max(0, Math.min(100, droughtChance));
+    droughtChance = Math.round(Math.max(0, Math.min(100, droughtChance)));
 
     return droughtChance;
   }
