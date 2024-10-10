@@ -2,17 +2,30 @@
 'use client';
 import axios from 'axios';
 import React, { useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import DroughtChart from './DroughtChart';
 import FloodChart from './FloodChart';
 // import FloodFetch from './FloodFetch';
+// import { latitude, longitude } from '../../datacenter/LocationTrack';
 
 interface DisastersFetchProps {
   disaster: string;
 }
 
+// interface drData {
+//   daily: {
+//     time: string[];
+//     temperature_2m_max: number[];
+//     relative_humidity_2m_max: number[];
+//   };
+// }
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
   const [riverDischargeFlood, setRiverDischargeFloor] = useState<number[]>([]);
+  // const [DroughtData, setDroughtData] = useState<drData>({
+  //   daily: { time: [], temperature_2m_max: [], relative_humidity_2m_max: [] },
+  // });
 
   const maxRiverDischarge = Math.max(...riverDischargeFlood);
   //risk changes create
@@ -54,23 +67,68 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
   }
 
   //drought =======================================
-  //   const maxRelativeHumidity = droughtFetchData ? Math.max(...droughtFetchData.daily.relative_humidity_2m_max) : 0;
-  //   const maxTemp = droughtFetchData ? Math.max(...droughtFetchData.daily.temperature_2m_max) : 0;
 
-  // function calculateDroughtIndex(maxTemp:number, maxRelativeHumidity: number) {
-  //     const alpha = 1.5;  // Sensitivity of drought to temperature
-  //     const beta = 0.8;   // Sensitivity of drought to humidity
-  //     const referenceTemperature = 25; // Reference temperature (°C)
+  //   useEffect(() => {
+  //     axios
+  //       .get(
+  //         `https://climate-api.open-meteo.com/v1/climate?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,relative_humidity_2m_max
+  // `
+  //       )
+  //       .then((response) => {
+  //         setDroughtData(response?.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }, []);
 
-  //     // Calculate drought index
-  //     const droughtIndex = alpha * (maxTemp - referenceTemperature) - beta * maxRelativeHumidity;
+  // const maxRelativeHumidity = DroughtData
+  //   ? Math.max(...DroughtData?.daily?.relative_humidity_2m_max)
+  //   : 0;
+  // const maxTemp = DroughtData
+  //   ? Math.max(...DroughtData?.daily?.temperature_2m_max)
+  //   : 0;
 
-  //     return droughtIndex;
-  // }
+  const maxTemp = 35; // in Celsius
+  const maxRelativeHumidity = 30; // in percentage
 
-  // const droughtPercentage = calculateDroughtIndex(maxTemp, maxRelativeHumidity);
+  function calculateDroughtChance(
+    maxTemp: number,
+    maxRelativeHumidity: number
+  ) {
+    const maxTemperature = 50; // Assuming max temperature of 50°C
+    const minTemperature = 0; // Assuming min temperature of 0°C
+    const maxHumidity = 100; // Maximum possible relative humidity
+    const minHumidity = 0; // Minimum possible relative humidity
 
-  const droughtPercentage = 10;
+    // Scale temperature and humidity
+    const tempFactor =
+      (maxTemp - minTemperature) / (maxTemperature - minTemperature);
+    const humidityFactor =
+      1 - (maxRelativeHumidity - minHumidity) / (maxHumidity - minHumidity); // Higher humidity reduces drought chance
+
+    // Drought chance is more sensitive to low humidity and high temperatures
+    let droughtChance = (tempFactor * 0.7 + humidityFactor * 0.3) * 100;
+
+    // Ensure the chance is between 0 and 100%
+    droughtChance = Math.max(0, Math.min(100, droughtChance));
+
+    return droughtChance;
+  }
+
+  const droughtPercentage = calculateDroughtChance(
+    maxTemp,
+    maxRelativeHumidity
+  );
+
+  //drought risk condition
+  if (droughtPercentage > 0 && droughtPercentage <= 40) {
+    droughtriskChanges = 'Safe';
+  } else if (droughtPercentage > 40 && droughtPercentage <= 90) {
+    droughtriskChanges = 'Moderate';
+  } else {
+    droughtriskChanges = 'High';
+  }
 
   //push alert
   setTimeout(() => {
@@ -102,15 +160,6 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
         });
     }
   }, 21600000);
-
-  //drought risk condition
-  if (droughtPercentage > 0 && droughtPercentage <= 40) {
-    droughtriskChanges = 'Safe';
-  } else if (droughtPercentage > 40 && droughtPercentage <= 90) {
-    droughtriskChanges = 'Moderate';
-  } else {
-    droughtriskChanges = 'High';
-  }
 
   return (
     <>
