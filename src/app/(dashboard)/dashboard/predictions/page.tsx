@@ -14,20 +14,20 @@ export default function page() {
         {/* 1st portion  */}
 
         <div className="grid grid-cols-1 lg:grid-cols-4">
-          <div className="col-span-2 border-b border-slate-200 px-10 py-5">
+          <div className="col-span-2 border-b border-slate-200 md:px-10 md:py-5">
             <WeatherCondition />
           </div>
-          <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5">
+          <div className="col-span-2 border-l border-b border-slate-200 md:px-10 md:py-5">
             <DisastersProbability />
           </div>
         </div>
         {/* 2nd Portion  */}
 
         <div className="grid grid-cols-1 lg:grid-cols-4">
-          <div className="col-span-2 border-b border-slate-200 px-10 py-5">
+          <div className="col-span-2 border-b border-slate-200 md:px-10 md:py-5">
             <LandTemp />
           </div>
-          <div className="col-span-2 border-l border-b border-slate-200 px-10 py-5 ">
+          <div className="col-span-2 border-l border-b border-slate-200 md:px-10 md:py-5 ">
             <LandCondition />
           </div>
         </div>

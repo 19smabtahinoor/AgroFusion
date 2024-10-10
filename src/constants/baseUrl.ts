@@ -1,1 +1,1 @@
-export const baseUrl = 'https://agro-fusion.vercel.app/';
+export const baseUrl = 'https://agroo-fusion.vercel.app/';

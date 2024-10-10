@@ -1,10 +1,10 @@
 
-'use client'
-import React, { useState, useEffect } from 'react'
+'use client';
+import React, { useEffect, useState } from 'react';
 // import { Button } from '../ui/button'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation';
 // import { cn } from '@/lib/utils'
-import PageTitle from '../ui/PageTitle'
+import PageTitle from '../ui/PageTitle';
 
 // type languageType = { id: number, text: string }
 const all_languages = [
@@ -131,48 +131,41 @@ const all_languages = [
     { "name": "Greenlandic", "code": "kl" },
     { "name": "Sami", "code": "se" },
     { "name": "Mongolic", "code": "xal" },
-]
+];
 
 
 export default function Languages() {
-    const router = useRouter()
-    const searchParams = useSearchParams()
-    const currentLanguage = searchParams.get('language')
-    
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const currentLanguage = searchParams.get('language');
+
     // Local state to store the previous language
-    const [prevLanguage, setPrevLanguage] = useState<string | null>(currentLanguage)
+    const [prevLanguage, setPrevLanguage] = useState<string | null>(currentLanguage);
 
     const handleLanguageChange = (lan: string) => {
-        router.replace(`/dashboard/report?language=${lan}`)
-    }
+        router.replace(`/dashboard/report?language=${lan}`);
+    };
 
     useEffect(() => {
         // Reload only if the language has changed and isn't the initial load
         if (currentLanguage && currentLanguage !== prevLanguage) {
-            setPrevLanguage(currentLanguage) // Update previous language
-            window.location.reload()
+            setPrevLanguage(currentLanguage); // Update previous language
+            window.location.reload();
         }
-        setSelectedLanguage(currentLanguage || '') // Reload the page
+        setSelectedLanguage(currentLanguage || ''); // Reload the page
 
-    }, [currentLanguage, prevLanguage])
+    }, [currentLanguage, prevLanguage]);
 
-    // const languages: languageType[] = [
-    //     { id: 1, text: "Bangla" },
-    //     { id: 2, text: "English" },
-    //     { id: 3, text: "Hindi" },
-    //     { id: 4, text: "Vietnamese" },
-    //     { id: 5, text: "Indonesian" },
-    // ]
     const [selectedLanguage, setSelectedLanguage] = useState('');
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setSelectedLanguage(value);
         // Run any function when the value changes
         handleLanguageChange(value);
-      };
+    };
 
 
-    
+
     return (
         <div className='flex flex-row items-center justify-between border-slate-200 border-b py-4'>
             <div>
@@ -180,22 +173,15 @@ export default function Languages() {
             </div>
             <div className='flex flex-row space-x-2 items-center'>
 
-            <select value={selectedLanguage} onChange={handleSelectChange} className='outline-none border border-primary text-primary rounded-md px-2 py-3'>
+                <select value={selectedLanguage} onChange={handleSelectChange} className='outline-none border border-primary text-primary rounded-md px-1 py-1.5'>
 
-                {all_languages?.map(item => {
-                    return(
-                        <option key={item.code} value={item.name} className='w-36'>{item.name}</option>
-                    )
-                })}
-            </select>
-            {/* {
-                languages.map((lan) => (
-                    <Button key={lan.id} onClick={() => handleLanguageChange(lan.text)} className={cn('','',{'bg-primary text-white' : currentLanguage === lan.text,'bg-white text-primary shadow-none border border-primary hover:text-white' : currentLanguage !== lan.text})}>
-                        {lan.text}
-                    </Button>
-                ))
-            } */}
+                    {all_languages?.map(item => {
+                        return (
+                            <option key={item.code} value={item.name} className='w-36'>{item.name}</option>
+                        );
+                    })}
+                </select>
             </div>
         </div>
-    )
+    );
 }

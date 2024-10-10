@@ -15,13 +15,13 @@ import farhan from '@/icons/farhan.png';
 import hardware from '@/icons/hardware.svg';
 import headerFrame from '@/icons/headerFrame.svg';
 import ragib from '@/icons/ragib.png';
+import report from '@/icons/report.png';
 import riceFarming from '@/icons/rice_farming.png';
 import smart_firming from '@/icons/smart_farming.svg';
 import sumaiya from '@/icons/sumaiya.png';
 import talha from '@/icons/talha.png';
 import vector from '@/icons/vector.svg';
 import yeasar from '@/icons/yeasar.png';
-import report from '@/icons/report.png';
 
 const icons = {
     field,
@@ -45,9 +45,9 @@ const icons = {
     brandLogo2,
     smart_firming,
     subtract,
+    report,
     headerFrame,
-    farmer_2,
-    report
+    farmer_2
 };
 
 export default icons;

@@ -7,7 +7,7 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import svg from '@/constants/menuIcons';
+import { default as icons, default as svg } from '@/constants/menuIcons';
 import { cn } from '@/lib/utils';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import LetterAvatar from 'react-avatar';
-import { BsBell } from "react-icons/bs";
+import { BiSolidBell } from 'react-icons/bi';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
 import { PiSignOut } from 'react-icons/pi';
@@ -35,7 +35,6 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 			icon: svg.forage,
 		},
 		{ name: 'Predictions', to: '/dashboard/predictions', icon: svg.trot_cards },
-		{ name: 'Alerts', to: '/dashboard/alerts', icon: svg.siren },
 		{ name: 'Help', to: '/dashboard/help', icon: svg.info },
 		{ name: 'Advisors', to: '/dashboard/advisors', icon: svg.info },
 		{ name: 'Report', to: '/dashboard/report?language=English', icon: svg.report },
@@ -53,6 +52,7 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 					'px-6 py-3 hover:bg-secondary text-slate-500 font-medium transition-all duration-200 text-sm rounded-md flex items-center gap-x-4',
 					{ 'bg-secondary text-primary': isActive }
 				)}
+				onClick={() => setMobileMenu(!mobileMenu)}
 			>
 				<Image
 					src={Icon}
@@ -94,64 +94,42 @@ export default function Sidebar({ children }: { children: React.ReactNode; }) {
 	);
 
 	return (
-		<div className=" flex flex-col overflow-x-hidden">
-			<nav className="flex gap-x-2 items-center justify-between">
-				<div className="w-[300px]   px-5 py-3  ">
-					<div
-						className="block md:hidden cursor-pointer"
-						onClick={() => setMobileMenu((open) => !open)}
-					>
-						{mobileMenu ? (
-							<IoMdClose className="text-2xl" />
-						) : (
-							<HiMenuAlt2 className="text-2xl" />
-						)}
-					</div>
-					<div className="flex items-center gap-x-3 px-6">
-						<Link href={'/'}>
-							<Image src={svg.brandLogo} alt="Brand Logo" />
+		<div className="h-screen flex flex-col">
+			<nav className="border-b border-slate-200 flex justify-between gap-x-2 items-center px-5 py-3">
+				<div className='flex items-center gap-x-2'>
+					<div className="block md:hidden cursor-pointer" onClick={() => setMobileMenu((open) => !open)}>{mobileMenu ? <IoMdClose className="text-2xl" /> : <HiMenuAlt2 className="text-2xl" />}</div>
+					<Link href={'/'}>
+						<Image src={icons.brandLogo} alt='brand' />
+					</Link>
+				</div>
+				<div className='hidden sm:block'>
+					<div className="lg:pr-[100px] flex items-center gap-x-5">
+
+						<div className='flex items-center gap-x-2'>
+							<div>{content}</div>
+							<h1>{user?.name}</h1>
+						</div>
+						<div>
+							<TopBarLocation />
+						</div>
+						<Link href={'/dashboard/alerts'}>
+							<div className='p-2 bg-primary rounded-full text-white relative hidden md:flex lg:flex'>
+								<span className="flex h-3 w-3 absolute left-6 -top-1">
+									<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+									<span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+								</span>
+								<BiSolidBell className='text-lg' />
+							</div>
 						</Link>
 					</div>
 				</div>
-				<div className="pr-[100px] flex items-center gap-x-5">
-
-					<div className='flex items-center gap-x-2'>
-						<div>{content}</div>
-						<h1>{user?.name}</h1>
-					</div>
-					<div className='hidden lg:flex'>
-						<TopBarLocation />
-					</div>
-					<Link href={'/dashboard/alerts'}>
-						<div className='p-2 bg-primary rounded-full text-white relative hidden md:flex lg:flex'>
-							<span className="flex h-3 w-3 absolute left-6 -top-1">
-								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-								<span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
-							</span>
-							<BsBell className='text-lg' />
-						</div>
-					</Link>
-				</div>
 			</nav>
-			<hr className="border-slate-200" />
-			<div className="flex overflow-hidden h-full">
-				<aside
-					className={cn(
-						'w-[300px] h-full  p-5 absolute md:static flex flex-col gap-y-2 transition-all duration-300 ease-in-out overflow-y-auto',
-						{
-							'-left-[300px]': !mobileMenu,
-							'-left-[0px] w-full md:w-[300px]': mobileMenu,
-						}
-					)}
-				>
-					<div className="mb-5">
-						<h1 className="px-6 text-sm mb-2 text-slate-500">Menu</h1>
-						{menus}
-					</div>
-				</aside>
+			<div className="flex overflow-hidden relative h-full">
+				<aside className={cn("w-[240px] lg:w-[300px] h-full border-r bg-white border-slate-200 p-5 absolute md:static flex flex-col gap-y-2 transition-all duration-300 ease-in-out overflow-y-auto", { "-left-[300px]": !mobileMenu, "-left-[0px] w-full md:w-[300px]": mobileMenu })}>{menus}</aside>
 
-				<main className="flex-1 p-5 overflow-y-auto border-l border-slate-200">{children}</main>
+				<main className="flex-1 p-5 overflow-y-auto">{children}</main>
 			</div>
 		</div>
+		// bg-[#F3FFF6] 
 	);
 }

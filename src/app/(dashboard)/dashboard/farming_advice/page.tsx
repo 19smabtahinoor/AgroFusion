@@ -10,6 +10,7 @@ import getQuery from '@/lib/functions/FetchQuery';
 export default async function page() {
   const { data: disease } = await getQuery('https://agro-fusion.vercel.app/api/disease/');
 
+
   return (
     <main className="lg:px-16">
       <PageTitle title="Farming Advice" />

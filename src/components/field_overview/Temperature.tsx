@@ -7,6 +7,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { latitude, longitude } from '../../datacenter/LocationTrack';
+import ModuleTitle from '../ui/ModuleTitle';
 
 export default function Temperature() {
   const [data, setData] = useState<>([]);
@@ -36,22 +37,20 @@ export default function Temperature() {
 
   return (
     <div>
-      <div className="flex flex-row justify-between items-center">
-        {/* <ModuleTitle title="Temperature" /> */}
-        <h1 className='mb-3 pt-4 text-lg text-primary font-semibold'>Temperature</h1>
+      <div className="flex flex-row justify-between">
+        <ModuleTitle title="Temperature" />
       </div>
       {/* temp  */}
-      <div className="flex flex-col items-center justify-center py-2 border mt-6 border-slate-300 rounded-xl w-full h-[200px] p-6 my-4 bg-[#19de26] text-white">
+      <div className="flex flex-col items-center justify-center py-2 border border-slate-300 rounded-xl h-[23rem] p-6 my-4">
         <div className="flex flex-row items-center space-x-2">
           {/* icon  */}
           <Image src={`https://openweathermap.org/img/wn/${infos?.icon}@2x.png`} width={30} height={20} alt="Weather Type" className='w-16 h-24 object-cover' />
-          <h2 className="font-bold text-6xl">{celsius}°C</h2>
+          <h2 className="font-bold text-3xl lg:text-6xl">{celsius}°C</h2>
         </div>
         <div className='flex flex-row items-center space-x-3'>
-          <p className="text-lg text-white">Feels Like {celsiusFeelsLike}°C</p>
+          <p className="text-lg text-slate-500">Feels Like {celsiusFeelsLike}°C</p>
           <p className="text-lg font-semibold text-red-600">{infos?.main}</p>
         </div>
-        <div>Clouds Cover: {data?.clouds?.all}%</div>
       </div>
     </div>
   );
