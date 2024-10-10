@@ -1,6 +1,5 @@
 'use client';
 
-import {longitude, latitude} from '../../datacenter/LocationTrack';
 import axios from 'axios';
 import {
   CategoryScale,
@@ -12,33 +11,36 @@ import {
 import Chart from 'chart.js/auto';
 import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import { latitude, longitude } from '../../datacenter/LocationTrack';
 Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
-
 
 interface FloodData {
   daily: { time: string[]; river_discharge: number[] };
 }
 
-const FloodChart = ({ setRiverDischargeFloor }: { setRiverDischargeFloor: (discharge: number[]) => void }) => {
-
+const FloodChart = ({
+  setRiverDischargeFloor,
+}: {
+  setRiverDischargeFloor: (discharge: number[]) => void;
+}) => {
   const [floodData, setFloodData] = useState<FloodData | null>(null);
 
-
   useEffect(() => {
-    axios.get(`https://flood-api.open-meteo.com/v1/flood?latitude=${latitude}&longitude=${longitude}&daily=river_discharge
-`)
-      .then(response => {
+    axios
+      .get(
+        `https://flood-api.open-meteo.com/v1/flood?latitude=${latitude}&longitude=${longitude}&daily=river_discharge
+`
+      )
+      .then((response) => {
         setFloodData(response.data);
         setRiverDischargeFloor(response.data?.daily?.river_discharge);
-        console.log(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
-      })
+      });
+  }, [setRiverDischargeFloor]);
 
-    },[setRiverDischargeFloor])
-
-    // console.log(floodData)
+  // console.log(floodData)
   const data: ChartData<'line' | 'bar', number[], string> = {
     labels: floodData?.daily?.time,
     datasets: [
@@ -52,7 +54,6 @@ const FloodChart = ({ setRiverDischargeFloor }: { setRiverDischargeFloor: (disch
       },
     ],
   };
-
 
   const options = {
     responsive: true,
@@ -72,11 +73,10 @@ const FloodChart = ({ setRiverDischargeFloor }: { setRiverDischargeFloor: (disch
     },
   };
 
-
   return (
-    <div className='mt-5'>
+    <div className="mt-5">
       <Line
-        data={data as ChartData<'line', number[], string>}//+
+        data={data as ChartData<'line', number[], string>} //+
         options={options}
       />
     </div>
