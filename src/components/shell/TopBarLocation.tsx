@@ -3,9 +3,19 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { latitude, longitude } from '../../datacenter/LocationTrack';
 
 const TopBarLocation = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [location, setLocation] = useState<any>({});
-  const [current, setCurrent] = useState<any>({});
+  interface LocationProperties {
+    suburb?: string;
+    city?: string;
+    country?: string;
+  }
+
+  const [location, setLocation] = useState<LocationProperties>({});
+  interface CurrentLocation {
+    lat: number;
+    lon: number;
+  }
+
+  const [current, setCurrent] = useState<CurrentLocation>({ lat: 0, lon: 0 });
 
   useEffect(() => {
     fetch(
