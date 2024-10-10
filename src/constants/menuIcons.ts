@@ -9,6 +9,7 @@ import siren from '@/icons/Siren.svg';
 import subtract from '@/icons/Subtract.svg';
 import trot_cards from '@/icons/Tarot Cards.svg';
 import abrahi from '@/icons/abtahi.png';
+import advisors from '@/icons/advisors.png';
 import agriculturalRobot from '@/icons/agricultural-robot.svg';
 import brandLogo2 from '@/icons/brand_logo2.svg';
 import farhan from '@/icons/farhan.png';
@@ -24,30 +25,31 @@ import vector from '@/icons/vector.svg';
 import yeasar from '@/icons/yeasar.png';
 
 const icons = {
-    field,
-    forage,
-    info,
-    profile,
-    setting,
-    siren,
-    trot_cards,
-    brandLogo,
-    riceFarming,
-    hardware,
-    agriculturalRobot,
-    abrahi,
-    yeasar,
-    farhan,
-    ragib,
-    talha,
-    sumaiya,
-    vector,
-    brandLogo2,
-    smart_firming,
-    subtract,
-    report,
-    headerFrame,
-    farmer_2
+  field,
+  forage,
+  info,
+  profile,
+  setting,
+  siren,
+  trot_cards,
+  brandLogo,
+  riceFarming,
+  hardware,
+  agriculturalRobot,
+  abrahi,
+  yeasar,
+  farhan,
+  ragib,
+  talha,
+  sumaiya,
+  vector,
+  brandLogo2,
+  smart_firming,
+  subtract,
+  report,
+  headerFrame,
+  farmer_2,
+  advisors,
 };
 
 export default icons;

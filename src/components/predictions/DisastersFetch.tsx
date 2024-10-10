@@ -171,11 +171,11 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
                 : 'border border-red-600 bg-red-100 text-red-700'
             } `}
           >
-            <h1 className="text-sm">
+            <h1 className="text-xs">
               Chances of floods:{' '}
               <span className="font-bold">{floodPercentage}%</span>
             </h1>
-            <p className="text-sm">
+            <p className="text-xs">
               Risk Type: <span className="font-bold">{floodriskChanges}</span>
             </p>
           </div>
@@ -194,11 +194,11 @@ const DisastersFetch: React.FC<DisastersFetchProps> = ({ disaster }) => {
                 : 'border border-red-600 bg-red-100 text-red-700'
             } `}
           >
-            <h1 className="text-sm">
+            <h1 className="text-xs">
               Chances of Droughts:{' '}
               <span className="font-bold">{droughtPercentage}%</span>
             </h1>
-            <p className="text-sm">
+            <p className="text-xs">
               Risk Type: <span className="font-bold">{droughtriskChanges}</span>
             </p>
           </div>
