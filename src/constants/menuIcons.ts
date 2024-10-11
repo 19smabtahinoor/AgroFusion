@@ -1,3 +1,7 @@
+import futureGoal1 from '@/icons/1.jpg';
+import futureGoal2 from '@/icons/2.jpg';
+import futureGoal3 from '@/icons/3.png';
+import futureGoal4 from '@/icons/4.jpg';
 import brandLogo from '@/icons/BrandLogo.svg';
 import farmer_2 from '@/icons/Farmer_2.svg';
 import field from '@/icons/Field.svg';
@@ -53,7 +57,11 @@ const icons = {
   farmer_2,
   advisors,
   diagram,
-  diagram_mobile
+  diagram_mobile,
+  futureGoal1,
+  futureGoal2,
+  futureGoal3,
+  futureGoal4
 };
 
 export default icons;

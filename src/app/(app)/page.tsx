@@ -1,4 +1,5 @@
 import About from "@/components/home/About";
+import FutureGoals from "@/components/home/FutureGoals";
 import Hero from "@/components/home/Hero";
 import HowItWorks from "@/components/home/HowItWorks";
 import Team from "@/components/home/Team";
@@ -15,6 +16,7 @@ export default function page() {
             </div>
             <HowItWorks />
             <Team />
+            <FutureGoals />
             <Footer />
         </div>
     );

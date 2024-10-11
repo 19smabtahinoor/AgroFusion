@@ -36,7 +36,7 @@ export default function Team() {
   ];
 
   return (
-    <div className="bg-[#f3fff5] border-b-2 border-primary mt-[40px] mb-[300px]">
+    <div className="bg-[#f3fff5] border-b-2 border-primary mt-[40px]">
       <div className="container pt-[100px]">
         <div className="text-center mb-20">
           <h1 className="text-3xl font-bold mb-2">Meet Our Team</h1>
