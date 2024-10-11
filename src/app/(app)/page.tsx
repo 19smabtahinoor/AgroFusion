@@ -15,8 +15,8 @@ export default function page() {
                 <About />
             </div>
             <HowItWorks />
-            <Team />
             <FutureGoals />
+            <Team />
             <Footer />
         </div>
     );

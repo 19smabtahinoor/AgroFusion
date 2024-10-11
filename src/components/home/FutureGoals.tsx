@@ -28,7 +28,7 @@ export default function FutureGoals() {
   ];
 
   return (
-    <div className=" mt-48 mb-[100px]">
+    <div className="mb-[200px]">
       <div className="container pt-[100px]">
         <div className="text-center mb-20">
           <h1 className="text-3xl font-bold mb-2">Future Goals</h1>
