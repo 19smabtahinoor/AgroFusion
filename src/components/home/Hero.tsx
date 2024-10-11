@@ -12,7 +12,7 @@ export default function Hero() {
                             <h1 className="text-black text-center lg:text-left leading-[32px] lg:leading-[55px]"><span className="text-primary">AgroFusion:</span> Sustainable Farming  Powered by <br /> Technology
                             </h1>
                         </div>
-                        <p className="text-slate-500 w-2/3 text-center lg:text-left text-sm">Empowering farmers with real-time insights to protect crops, manage resources, and thrive in any condition</p>
+                        <p className="text-slate-500 w-2/3 text-center lg:text-left text-base">Empowering farmers with real-time insights to protect crops, manage resources, and thrive in any condition</p>
                     </div>
                     <div className="hidden lg:block w-[600px] h-[600px] bg-primary absolute filter opacity-10 -top-[400px] rotate-45 -left-[200px] blur-3xl"></div>
                 </div>

@@ -7,22 +7,22 @@ export default function FutureGoals() {
   const teamData = [
     {
       title: 'Farm Central',
-      description: 'Establishing a location where farmers can readily obtain all the information they require, presented effectively and without needless jargon',
+      description: 'Creating a place where farmers can easily access all the information they need, clearly presented and without unnecessary jargon.',
       image: icons.futureGoal1,
     },
     {
       title: 'Efficient, Low-Cost Agriculture',
-      description: 'Constructing a low-cost system with an emphasis on productivity and efficiency. ensuring that this approach improves resource management, increases crop productivity, and reduces losses',
+      description: 'Building a low-cost system focused on boosting productivity, improving resource management, and reducing crop losses.',
       image: icons.futureGoal2,
     },
     {
       title: 'Optimizing Agriculture',
-      description: 'Providing the greatest resource management, reducing disease and insect infestations, and increasing total crop output. ensuring that these methods are used to lessen the world food issue. With a goal of saving resources  to make the world a better place.',
+      description: 'Improving resource management, reducing pests and disease, and boosting crop yields to help ease the global food crisis and save resources for a better future.',
       image: icons.futureGoal3,
     },
     {
       title: 'Tech-Driven Food Security',
-      description: 'Ensuring the improvement of global food security by utilizing the initiative to automate processes, make educated decisions about agriculture, and improve management. Using this, we aim to improve the world.',
+      description: 'Improving global food security by automating processes, making informed agricultural decisions, and enhancing management, all to create a better world.',
       image: icons.futureGoal4,
     },
   ];
@@ -48,7 +48,7 @@ export default function FutureGoals() {
               {/* title */}
               <div className='flex flex-col items-center p-5'>
                 <h1 className="text-lg font-bold text-primary mb-2 text-center lg:text-left">{title}</h1>
-                <p className='text-justify text-xs text-slate-500'>{description}</p>
+                <p className='text-justify text-sm text-slate-600'>{description}</p>
               </div>
 
             </div>
