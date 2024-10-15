@@ -15,7 +15,7 @@ import { latitude, longitude } from '../../datacenter/LocationTrack';
 Chart.register(CategoryScale, LineElement, LinearScale, PointElement);
 
 interface FloodData {
-  daily: { time: string[]; river_discharge: number[] };
+  daily: { time: string[]; river_discharge: number[]; };
 }
 
 const FloodChart = ({
@@ -59,13 +59,13 @@ const FloodChart = ({
     responsive: true,
     scales: {
       x: {
-        max: 60,
+        max: 15,
         ticks: {
           stepSize: 20,
         },
       },
       y: {
-        max: 300,
+        max: 20,
         ticks: {
           stepSize: 5,
         },
