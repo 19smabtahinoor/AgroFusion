@@ -4,7 +4,7 @@ import { CategoryScale } from 'chart.js';
 import 'chart.js/auto';
 import Chart from 'chart.js/auto';
 
-import { Bubble } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 Chart.register(CategoryScale);
 const formatToAmPm = (dateString: string) => {
@@ -16,7 +16,6 @@ const BubbleChart = ({ data }: { data: Humidity[]; }) => {
     const bubbleData = data.map((data) => ({
         x: formatToAmPm(data.createdAt),
         y: data.humidity,
-        r: 10,
     }));
 
     const apiData = {
@@ -29,28 +28,34 @@ const BubbleChart = ({ data }: { data: Humidity[]; }) => {
         ],
     };
 
-    return <Bubble
-        data={apiData}
-        options={{
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Time (AM/PM)',
+    return (
+
+
+        <Line
+            data={apiData}
+            options={{
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time (AM/PM)',
+                        },
+                        type: 'category',
+
+
                     },
-                    type: 'category',
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Humidity (%)',
-                    },
-                    beginAtZero: true,
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Humidity (%)',
+                        },
+                        beginAtZero: true,
+                        max: 100,
+                    }
                 }
-            }
-        }}
-    />;
+            }}
+        />);
 };
 
 export default BubbleChart;

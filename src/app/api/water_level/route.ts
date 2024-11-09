@@ -26,12 +26,7 @@ export async function GET() {
         const endOfDay = new Date();
         endOfDay.setHours(23, 59, 59, 999);
 
-        const waterLevel = await WaterLevelModel.find({
-            createdAt: {
-                $gte: startOfDay,
-                $lte: endOfDay,
-            },
-        }) as WaterLevel[];
+        const waterLevel = await WaterLevelModel.find({}) as WaterLevel[];
 
         return sendResponse(true, `Today's water levels sent successfully, count: ${waterLevel.length}`, 200, waterLevel);
 
@@ -40,3 +35,26 @@ export async function GET() {
         return sendResponse(false, 'Error fetching water levels', 400, error);
     }
 }
+// export async function GET() {
+//     await dbConnect();
+//     try {
+//         const startOfDay = new Date();
+//         startOfDay.setHours(0, 0, 0, 0);
+
+//         const endOfDay = new Date();
+//         endOfDay.setHours(23, 59, 59, 999);
+
+//         const waterLevel = await WaterLevelModel.find({
+//             createdAt: {
+//                 $gte: startOfDay,
+//                 $lte: endOfDay,
+//             },
+//         }) as WaterLevel[];
+
+//         return sendResponse(true, `Today's water levels sent successfully, count: ${waterLevel.length}`, 200, waterLevel);
+
+//     } catch (error) {
+//         console.log("🚀 ~ GET ~ error: /api/water level - error fetching today's water levels", error);
+//         return sendResponse(false, 'Error fetching water levels', 400, error);
+//     }
+// }
