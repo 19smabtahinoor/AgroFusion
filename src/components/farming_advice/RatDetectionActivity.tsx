@@ -9,7 +9,7 @@ const RatDetectionActivity = () => {
     rat_detected: boolean;
   }
 
-  const [data, setData] = useState<RatDetectionData>({ rat_detected: false });
+  const [data, setData] = useState<RatDetectionData>({ rat_detected: true });
 
   useEffect(() => {
     async function fetchData() {
@@ -40,9 +40,17 @@ const RatDetectionActivity = () => {
         {/* details  */}
         <div className='flex flex-col space-y-4'>
 
-          <div className='flex flex-col items-center justify-center'>
-            <h1 className='text-3xl text-black'>{data?.rat_detected + ""}</h1>
-          </div>
+          {
+            data?.rat_detected === false ? (
+              <p className='text-primary bg-green-200 px-3 py-2 rounded-md'>
+                No rat activity detected in the field
+              </p>
+            ) : (
+              <p className='text-red-700 bg-red-200 px-3 py-2 rounded-md'>
+                Rat Found!
+              </p>
+            )
+          }
 
 
 
