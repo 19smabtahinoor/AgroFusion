@@ -10,7 +10,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BiLoaderAlt } from 'react-icons/bi';
@@ -30,7 +29,6 @@ export default function Page() {
   });
 
   const { toast } = useToast();
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
@@ -39,12 +37,12 @@ export default function Page() {
       email: data.email,
       password: data.password,
       redirect: false,
-      callbackUrl: '/dashboard',
+      callbackUrl: '/dashboard/field_overview',
     });
     if (result?.ok) {
-      const url = result?.url as string;
       setLoading(false);
-      router.push(url);
+      window.location.href = '/dashboard/field_overview';
+      // router.push(url);
     } else {
       setLoading(false);
       toast({

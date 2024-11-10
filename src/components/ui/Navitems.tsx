@@ -91,18 +91,14 @@ export default function NavItems({ links }: { links: Link[]; }) {
     return (
         <>
             {items}
-            <div>
+            <div className='flex items-center gap-x-3'>
+                <Link href={'/dashboard/field_overview'}>
+                    <Button className="mb-5 md:mb-0 text-sm w-[fit-content] text-primary bg-secondary rounded-full hover:text-white shadow-none">Dashboard</Button>
+                </Link>
                 {
-                    user?.email ? <div className='flex flex-col md:flex-row md:items-center gap-5'>
-                        <Link href={'/dashboard/field_overview'}>Dashboard</Link>
-                        <div>{account}</div>
-                    </div>
-                        : <Link href={'/sign-in'}>
-                            <Button className="mb-5 md:mb-0 text-sm w-[fit-content] text-primary bg-secondary rounded-full hover:text-white shadow-none">Sign In</Button>
-                        </Link>
+                    user?.email && <div>{account}</div>
                 }
-
-            </div>
+            </div >
         </>
     );
 }
