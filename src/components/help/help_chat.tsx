@@ -19,7 +19,7 @@ export default function HelpChat({ ask }: { ask: string; }) {
 		if (ask.length > 1) {
 			setInput(ask);
 		}
-	}, [ask.length]);
+	}, [ask, setInput]);
 
 	useEffect(() => {
 		if (ask.length > 1 && !isTyping) {
@@ -51,6 +51,7 @@ export default function HelpChat({ ask }: { ask: string; }) {
 										<p className='text-sm font-semibold text-end'>{user?.name}</p>
 										<div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
 											<Markdown text={m.content} />
+
 										</div>
 									</div>
 
