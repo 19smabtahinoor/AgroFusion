@@ -2,6 +2,7 @@
 import HelpChat from '@/components/help/help_chat';
 import { useSession } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 export default function Page() {
   const { data } = useSession();
@@ -12,7 +13,7 @@ export default function Page() {
   console.log("🚀 ~ Page ~ ask:", ask);
 
   return (
-    <>
+    <Suspense>
       <div className="lg:px-16">
         {/* heading  */}
         <div className="flex flex-col items-center justify-center space-y-1">
@@ -29,6 +30,6 @@ export default function Page() {
           <HelpChat ask={ask || ""} />
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }

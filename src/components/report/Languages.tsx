@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 // import { Button } from '../ui/button'
 import { useRouter, useSearchParams } from 'next/navigation';
 // import { cn } from '@/lib/utils'
+import { Suspense } from 'react';
 import PageTitle from '../ui/PageTitle';
 
 // type languageType = { id: number, text: string }
@@ -167,21 +168,23 @@ export default function Languages() {
 
 
     return (
-        <div className='flex flex-row items-center justify-between border-slate-200 border-b py-4'>
-            <div>
-                <PageTitle title="Overall Report" />
-            </div>
-            <div className='flex flex-row space-x-2 items-center'>
+        <Suspense>
+            <div className='flex flex-row items-center justify-between border-slate-200 border-b py-4'>
+                <div>
+                    <PageTitle title="Overall Report" />
+                </div>
+                <div className='flex flex-row space-x-2 items-center'>
 
-                <select value={selectedLanguage} onChange={handleSelectChange} className='outline-none border border-primary text-primary rounded-md px-1 py-1.5'>
+                    <select value={selectedLanguage} onChange={handleSelectChange} className='outline-none border border-primary text-primary rounded-md px-1 py-1.5'>
 
-                    {all_languages?.map(item => {
-                        return (
-                            <option key={item.code} value={item.name} className='w-36'>{item.name}</option>
-                        );
-                    })}
-                </select>
+                        {all_languages?.map(item => {
+                            return (
+                                <option key={item.code} value={item.name} className='w-36'>{item.name}</option>
+                            );
+                        })}
+                    </select>
+                </div>
             </div>
-        </div>
+        </Suspense>
     );
 }
