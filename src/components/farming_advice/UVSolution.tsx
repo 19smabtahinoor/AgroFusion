@@ -3,7 +3,7 @@
 import Link from 'next/link';
 // import { useState } from 'react';
 // import Markdown from '../help/markdown';
-import Markdown from '../help/markdown';
+// import Markdown from '../help/markdown';
 import ModuleTitle from '../ui/ModuleTitle';
 
 
@@ -82,13 +82,17 @@ preventive measures against UV (If level is over 7.5)
 							<div className="text-sm text-justify bg-red-200 p-4 rounded-md">
 								<p className='mb-4 font-semibold'> When UV levels go above 8, they can harm crops by damaging cells
 									and slowing growth. Farmers can protect crops with these simple steps:</p>
-								<Markdown text={solution_Data[0]?.solution} />
+								{/* <Markdown text={solution_Data[0]?.solution} /> */}
+								<p>{solution_Data[0]?.solution}</p>
+
 							</div>
 						</>
 					) : (
 						<>
 							<div className="text-sm text-justify text-wrap bg-green-200 p-4 rounded-md">
-								<Markdown text={solution_Data[1]?.solution} />
+								{/* <Markdown text={solution_Data[1]?.solution} /> */}
+								<p>{solution_Data[1]?.solution}</p>
+
 							</div>
 						</>
 					)}

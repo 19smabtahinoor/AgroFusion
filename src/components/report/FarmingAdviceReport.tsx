@@ -2,7 +2,7 @@
 
 import { useChat } from "ai/react";
 import { useEffect, useState } from "react";
-import Markdown from "../help/markdown";
+// import Markdown from "../help/markdown";
 
 export default function FarmingAdviceReport({ data }: { data: { uvIndex: number, disease: string[], soilType: string, language: string; }; }) {
 
@@ -15,7 +15,7 @@ export default function FarmingAdviceReport({ data }: { data: { uvIndex: number,
 
     useEffect(() => {
         setInput(prompt);
-    }, [prompt]);
+    }, [prompt, setInput]);
 
 
     useEffect(() => {
@@ -37,7 +37,8 @@ export default function FarmingAdviceReport({ data }: { data: { uvIndex: number,
 
                             <div className='flex flex-col space-y-2'>
                                 <div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
-                                    <Markdown text={m.content} />
+                                    {/* <Markdown text={m.content} /> */}
+                                    <p>{m.content}</p>
                                 </div>
                             </div>
                         )

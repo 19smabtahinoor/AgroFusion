@@ -2,7 +2,7 @@
 
 import { useChat } from "ai/react";
 import { useEffect, useState } from "react";
-import Markdown from "../help/markdown";
+// import Markdown from "../help/markdown";
 
 export default function PredictionsReport({ data }: { data: { groundwaterdecision: string, rain_type: string, soilDryness: number, waterPurity: number, language: string; }; }) {
     const { messages, handleSubmit, setInput } = useChat();
@@ -35,7 +35,9 @@ export default function PredictionsReport({ data }: { data: { groundwaterdecisio
 
                             <div className='flex flex-col space-y-2'>
                                 <div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
-                                    <Markdown text={m.content} />
+                                    {/* <Markdown text={m.content} /> */}
+                                    <p>{m.content}</p>
+
                                 </div>
                             </div>
                         )

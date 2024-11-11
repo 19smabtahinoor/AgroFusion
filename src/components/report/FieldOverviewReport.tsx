@@ -2,7 +2,7 @@
 
 import { useChat } from "ai/react";
 import { useEffect, useState } from "react";
-import Markdown from "../help/markdown";
+// import Markdown from "../help/markdown";
 
 export default function FieldOverviewReport({ data }: { data: { ph: number, soil_health: string, humidity: number, water_level: number, language: string; }; }) {
     const { messages, handleSubmit, setInput } = useChat();
@@ -15,7 +15,7 @@ export default function FieldOverviewReport({ data }: { data: { ph: number, soil
 
     useEffect(() => {
         setInput(prompt);
-    }, [prompt]);
+    }, [prompt, setInput]);
 
 
     useEffect(() => {
@@ -26,7 +26,6 @@ export default function FieldOverviewReport({ data }: { data: { ph: number, soil
         }
     }, [isSubmitted, handleSubmit]);
 
-    console.log(messages);
     return (
         <div>
 
@@ -37,7 +36,9 @@ export default function FieldOverviewReport({ data }: { data: { ph: number, soil
 
                             <div className='flex flex-col space-y-2'>
                                 <div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
-                                    <Markdown text={m.content} />
+                                    {/* <Markdown text={m.content} /> */}
+                                    <p>{m.content}</p>
+
                                 </div>
                             </div>
                         )

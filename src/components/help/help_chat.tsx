@@ -7,7 +7,7 @@ import { useChat } from 'ai/react';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Markdown from './markdown';
+// import Markdown from './markdown';
 
 export default function HelpChat({ ask }: { ask: string; }) {
 	const { messages, input, handleInputChange, handleSubmit, setInput } = useChat();
@@ -50,7 +50,8 @@ export default function HelpChat({ ask }: { ask: string; }) {
 									<div className='flex flex-col space-y-2'>
 										<p className='text-sm font-semibold text-end'>{user?.name}</p>
 										<div className="w-auto bg-slate-200 px-4 py-2 rounded-lg  text-slate-800">
-											<Markdown text={m.content} />
+											{/* <Markdown text={m.content} /> */}
+											<p>{m?.content}</p>
 
 										</div>
 									</div>
@@ -70,7 +71,9 @@ export default function HelpChat({ ask }: { ask: string; }) {
 									<div className='flex flex-col space-y-2'>
 										<p className='text-sm font-semibold text-left text-primary'>AgroFutorist AI</p>
 										<div className="w-auto bg-primary px-4 py-2 rounded-lg  text-white">
-											<Markdown text={m.content} />
+											{/* <Markdown text={m.content} /> */}
+											<p>{m?.content}</p>
+
 										</div>
 									</div>
 
