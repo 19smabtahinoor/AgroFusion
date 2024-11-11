@@ -11,11 +11,10 @@ export default function PredictionsReport({ data }: { data: { groundwaterdecisio
     const prompt = `MY land's soildryness is  ${data?.soilDryness}% and MY land's ground level water is ${data?.waterPurity} %.
      The current rain type is  ${data?.rain_type}. The current decision based on the ground water level is ${data?.groundwaterdecision}.
      so give me overall recommendations in 100 words (must give response with some points separeted with number like 1,2,3) in ${data.language} language (Give me the most cost efficient alternatives)`;
-    console.log(prompt);
 
     useEffect(() => {
         setInput(prompt);
-    }, [prompt]);
+    }, [prompt, setInput]);
 
 
     useEffect(() => {
@@ -26,7 +25,6 @@ export default function PredictionsReport({ data }: { data: { groundwaterdecisio
         }
     }, [isSubmitted, handleSubmit]);
 
-    console.log(messages);
     return (
         <div>
 
