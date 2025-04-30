@@ -22,19 +22,20 @@ export default function Team() {
       name: 'Farhan Ishmam',
       designation: 'Hardware Management',
       image: icons.farhan,
-    },
-    {
-      name: 'Abdul Munemul Talha',
-      designation: 'Video Editor',
-      image: icons.talha,
-    },
-    {
-      name: 'Mst. Sumaiya',
-      designation: 'UI/UX Designer',
-      image: icons.sumaiya,
-    },
+    }
   ];
 
+  // ,
+  //   {
+  //     name: 'Abdul Munemul Talha',
+  //     designation: 'Video Editor',
+  //     image: icons.talha,
+  //   },
+  //   {
+  //     name: 'Mst. Sumaiya',
+  //     designation: 'UI/UX Designer',
+  //     image: icons.sumaiya,
+  //   },
   return (
     <div className="bg-[#f3fff5] border-b-2 border-primary mt-[40px] mb-[200px]">
       <div className="container pt-[100px]">
