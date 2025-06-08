@@ -2,7 +2,7 @@
 This is the solution of **Leveraging Earth Observation Data for Informed Agricultural Decision-Making** implemented by Team AgroFusion
 
 # Live Link  
-https://agro-fusion.vercel.app/
+https://agro-fusion.vercel.app/        ( You have to login to explore the dashboard )
 
 # Hardware Code's Repository : 
 https://github.com/19smabtahinoor/AgroFusion_Hardware 
